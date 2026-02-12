@@ -58,14 +58,14 @@ export default function Page() {
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/ContactUS"
-              className="inline-block rounded-md bg-emerald-500 px-6 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
+              className="inline-block rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy"
             >
               {t("whyicr.cta.discuss")} »
             </Link>
 
             <Link
               href="/services"
-              className="inline-block rounded-md border border-emerald-400 px-6 py-3 text-sm font-medium text-emerald-200 hover:bg-emerald-600/10"
+              className="inline-block rounded-md border border-brand-blue px-6 py-3 text-sm font-medium text-brand-teal hover:bg-brand-navy/10"
             >
               {t("whyicr.cta.services")}
             </Link>
@@ -77,7 +77,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-4 space-y-16">
           <div className="grid lg:grid-cols-2 gap-4 items-center">
             <div>
-              <div className="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs text-emerald-700 mb-4">
+              <div className="inline-block rounded-full bg-brand-blue/5 px-3 py-1 text-xs text-brand-navy mb-4">
                 {t("whyicr.section.consulting")}
               </div>
               <h3 className="text-3xl font-semibold text-slate-900">
@@ -111,7 +111,7 @@ export default function Page() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs text-emerald-700 mb-4">
+              <div className="inline-block rounded-full bg-brand-blue/5 px-3 py-1 text-xs text-brand-navy mb-4">
                 {t("whyicr.section.consulting")}
               </div>
               <h3 className="text-3xl font-semibold text-slate-900">
@@ -127,7 +127,7 @@ export default function Page() {
 
       <section className="py-10 bg-linear-to-r from-[#f7fbfa] to-[#f1f8f6]">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <div className="inline-block rounded-full bg-white/30 px-3 py-1 text-xs text-emerald-700 mb-4">
+          <div className="inline-block rounded-full bg-white/30 px-3 py-1 text-xs text-brand-navy mb-4">
             {t("whyicr.section.retailaudit")}
           </div>
           <h3 className="mt-6 text-3xl font-sans text-slate-900 sm:text-4xl">
@@ -139,7 +139,7 @@ export default function Page() {
 
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-left">
             <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                 <Users className="h-6 w-6" />
               </div>
               <h4 className="text-lg font-semibold text-slate-900">
@@ -151,7 +151,7 @@ export default function Page() {
             </div>
 
             <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                 <Database className="h-6 w-6" />
               </div>
               <h4 className="text-lg font-semibold text-slate-900">
@@ -163,7 +163,7 @@ export default function Page() {
             </div>
 
             <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                 <BarChart2 className="h-6 w-6" />
               </div>
               <h4 className="text-lg font-semibold text-slate-900">
@@ -175,7 +175,7 @@ export default function Page() {
             </div>
 
             <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                 <FileText className="h-6 w-6" />
               </div>
               <h4 className="text-lg font-semibold text-slate-900">
@@ -191,7 +191,7 @@ export default function Page() {
 
       <section className="py-10 bg-linear-to-r from-[#f7fbfa] to-[#f1f8f6]">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <div className="inline-block rounded-full bg-white/30 px-3 py-1 text-xs text-emerald-700 mb-6">
+          <div className="inline-block rounded-full bg-white/30 px-3 py-1 text-xs text-brand-navy mb-6">
             {t("whyicr.section.process")}
           </div>
           <h3 className="mt-6 text-3xl font-sans text-slate-900 sm:text-4xl">
@@ -203,12 +203,12 @@ export default function Page() {
 
           <div className="relative mt-16">
             {/* Connecting line - hidden on mobile */}
-            <div className="absolute left-0 right-0 top-12 h-0.5 bg-gradient-to-r from-emerald-200 via-emerald-400 to-emerald-200 hidden sm:block" />
+            <div className="absolute left-0 right-0 top-12 h-0.5 bg-gradient-to-r from-brand-blue/40 via-brand-blue to-brand-teal/60 hidden sm:block" />
 
             <div className="grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-6">
               {/* Step 1 */}
               <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg mb-6">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
                   <span className="text-3xl font-bold text-white">01</span>
                 </div>
                 <h4 className="text-lg font-semibold text-slate-900 mb-2">
@@ -221,7 +221,7 @@ export default function Page() {
 
               {/* Step 2 */}
               <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg mb-6">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
                   <span className="text-3xl font-bold text-white">02</span>
                 </div>
                 <h4 className="text-lg font-semibold text-slate-900 mb-2">
@@ -234,7 +234,7 @@ export default function Page() {
 
               {/* Step 3 */}
               <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg mb-6">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
                   <span className="text-3xl font-bold text-white">03</span>
                 </div>
                 <h4 className="text-lg font-semibold text-slate-900 mb-2">
@@ -247,7 +247,7 @@ export default function Page() {
 
               {/* Step 4 */}
               <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg mb-6">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
                   <span className="text-3xl font-bold text-white">04</span>
                 </div>
                 <h4 className="text-lg font-semibold text-slate-900 mb-2">
@@ -297,8 +297,8 @@ export default function Page() {
           </p>
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center max-w-4xl mx-auto">
-            <div className="rounded-xl bg-emerald-50 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-emerald-600">
+            <div className="rounded-xl bg-brand-blue/5 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-brand-blue">
                 <svg
                   className="h-10 w-10"
                   xmlns="http://www.w3.org/2000/svg"
@@ -324,8 +324,8 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-emerald-50 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-emerald-600">
+            <div className="rounded-xl bg-brand-blue/5 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-brand-blue">
                 <svg
                   className="h-10 w-10"
                   xmlns="http://www.w3.org/2000/svg"
@@ -346,8 +346,8 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-emerald-50 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-emerald-600">
+            <div className="rounded-xl bg-brand-blue/5 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-brand-blue">
                 <svg
                   className="h-10 w-10"
                   xmlns="http://www.w3.org/2000/svg"
@@ -399,8 +399,8 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-emerald-50 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-emerald-600">
+            <div className="rounded-xl bg-brand-blue/5 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-brand-blue">
                 <svg
                   className="h-10 w-10"
                   xmlns="http://www.w3.org/2000/svg"
@@ -435,8 +435,8 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-emerald-50 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
-              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-emerald-600">
+            <div className="rounded-xl bg-brand-blue/5 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-lg text-brand-blue">
                 <svg
                   className="h-10 w-10"
                   xmlns="http://www.w3.org/2000/svg"
@@ -471,7 +471,7 @@ export default function Page() {
           <div className="mt-10">
             <Link
               href="/ContactUS"
-              className="inline-block rounded-md bg-emerald-500 px-6 py-3 text-sm font-semibold text-white hover:bg-emerald-600"
+              className="inline-block rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy"
             >
               {t("whyicr.cta.discuss")} »
             </Link>
@@ -481,7 +481,7 @@ export default function Page() {
 
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <div className="inline-block rounded-full bg-emerald-50 px-3 py-1 text-xs text-emerald-700 mb-4">
+          <div className="inline-block rounded-full bg-brand-blue/5 px-3 py-1 text-xs text-brand-navy mb-4">
             {t("whyicr.section.success")}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
@@ -497,7 +497,7 @@ export default function Page() {
               dir={language === "ar" ? "rtl" : "ltr"}
             >
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                   <Users className="h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -512,11 +512,11 @@ export default function Page() {
             </div>
 
             <div
-              className="rounded-lg bg-emerald-50 p-6 shadow-md ring-1 ring-emerald-100 border border-emerald-200"
+              className="rounded-lg bg-brand-blue/5 p-6 shadow-md ring-1 ring-brand-blue/20 border border-brand-blue/30"
               dir={language === "ar" ? "rtl" : "ltr"}
             >
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-white text-emerald-600">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-white text-brand-blue">
                   <Award className="h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -535,7 +535,7 @@ export default function Page() {
               dir={language === "ar" ? "rtl" : "ltr"}
             >
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                   <Zap className="h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -554,7 +554,7 @@ export default function Page() {
               dir={language === "ar" ? "rtl" : "ltr"}
             >
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                   <BarChart2 className="h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -569,11 +569,11 @@ export default function Page() {
             </div>
 
             <div
-              className="rounded-lg bg-emerald-50 p-6 shadow-md ring-1 ring-emerald-100 border border-emerald-200"
+              className="rounded-lg bg-brand-blue/5 p-6 shadow-md ring-1 ring-brand-blue/20 border border-brand-blue/30"
               dir={language === "ar" ? "rtl" : "ltr"}
             >
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-white text-emerald-600">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-white text-brand-blue">
                   <Wrench className="h-5 w-5" />
                 </div>
                 <div className="flex-1">
@@ -592,7 +592,7 @@ export default function Page() {
               dir={language === "ar" ? "rtl" : "ltr"}
             >
               <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-emerald-50 text-emerald-600">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
                   <FileText className="h-5 w-5" />
                 </div>
                 <div className="flex-1">

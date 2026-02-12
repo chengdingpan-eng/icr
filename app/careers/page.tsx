@@ -137,7 +137,7 @@ export default function CareerPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <section className="w-full relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
         {/* decorative pattern */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -177,7 +177,7 @@ export default function CareerPage() {
           <h1 className="mx-auto max-w-3xl text-3xl font-sans leading-tight text-white md:text-5xl">
             {t("careers.hero.title")}
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-emerald-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-teal">
               {t("careers.hero.subtitle")}
             </span>
           </h1>
@@ -191,7 +191,7 @@ export default function CareerPage() {
       <section className="w-full bg-gradient-to-b from-[#f7fafc] to-[#eef4f7] py-12">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-8">
-            {/* <div className="inline-block rounded-full bg-[#e6f6f3] px-4 py-1 text-sm text-emerald-600 font-semibold mb-4 shadow-sm">
+            {/* <div className="inline-block rounded-full bg-[#e6f6f3] px-4 py-1 text-sm text-brand-blue font-semibold mb-4 shadow-sm">
               {t("careers.section.whyworkwithus")}
             </div> */}
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
@@ -207,13 +207,13 @@ export default function CareerPage() {
                 key={idx}
                 className={`p-6 rounded-xl shadow-sm border ${
                   benefit.highlighted
-                    ? "bg-gradient-to-br from-emerald-50 to-white border-emerald-200"
+                    ? "bg-gradient-to-br from-brand-blue/5 to-white border-brand-blue/40"
                     : "bg-white border-slate-200"
                 }`}
               >
                 <h3
                   className={`text-lg font-semibold mb-2 ${
-                    benefit.highlighted ? "text-emerald-600" : "text-slate-700"
+                    benefit.highlighted ? "text-brand-blue" : "text-slate-700"
                   }`}
                 >
                   {benefit.title}
@@ -269,7 +269,7 @@ export default function CareerPage() {
                   name="name"
                   required
                   placeholder=""
-                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40"
                 />
               </div>
               <div>
@@ -281,7 +281,7 @@ export default function CareerPage() {
                   name="email"
                   required
                   placeholder=""
-                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40"
                 />
               </div>
               <div>
@@ -293,7 +293,7 @@ export default function CareerPage() {
                   name="phone"
                   required
                   placeholder=""
-                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40"
                 />
               </div>
               <div>
@@ -305,7 +305,7 @@ export default function CareerPage() {
                   name="position"
                   required
                   placeholder=""
-                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40"
                 />
               </div>
               <div>
@@ -313,7 +313,7 @@ export default function CareerPage() {
                   {t("careers.form.resume")}
                 </label>
                 <label className="block">
-                  <div className="w-full rounded-md border-2 border-dashed border-emerald-200 bg-emerald-50/60 px-4 py-8 text-center cursor-pointer hover:bg-emerald-100 transition">
+                  <div className="w-full rounded-md border-2 border-dashed border-brand-blue/40 bg-brand-blue/5 px-4 py-8 text-center cursor-pointer hover:bg-brand-blue/10 transition">
                     <input
                       type="file"
                       accept=".pdf,.doc,.docx"
@@ -323,7 +323,7 @@ export default function CareerPage() {
                     <div className="flex flex-col items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-emerald-400 mb-2"
+                        className="h-8 w-8 text-brand-teal mb-2"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -355,14 +355,14 @@ export default function CareerPage() {
                   name="coverLetter"
                   rows={4}
                   placeholder=""
-                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                  className="w-full rounded-md border border-slate-200 px-4 py-3 text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40"
                 />
               </div>
             </div>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-emerald-400 hover:bg-emerald-500 text-white font-semibold py-3 rounded-md transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-brand-blue hover:bg-brand-navy text-white font-semibold py-3 rounded-md transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Submitting..." : t("careers.form.submit")}
             </button>
@@ -374,7 +374,7 @@ export default function CareerPage() {
       <section className="w-full bg-gradient-to-br from-[#0a1f2e] to-[#041a2e] py-16">
         <div className="mx-auto max-w-3xl px-4">
           <div className="text-center mb-8">
-            <div className="inline-block rounded-full bg-emerald-500/20 border border-emerald-400/30 px-4 py-1 text-sm text-emerald-400 font-semibold mb-4 shadow-sm">
+            <div className="inline-block rounded-full bg-brand-blue/15 border border-brand-blue/40 px-4 py-1 text-sm text-brand-teal font-semibold mb-4 shadow-sm">
               {t("careers.section.process")}
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2">

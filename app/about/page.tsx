@@ -75,7 +75,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <section className="w-full relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
         {/* decorative pattern */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -116,7 +116,7 @@ export default function AboutPage() {
           <h1 className="mx-auto max-w-4xl text-3xl font-sans leading-tight text-white md:text-5xl">
             {t("about.hero.title")}
             <br />
-            <span className="text-emerald-400">{t("about.hero.subtitle")}</span>
+            <span className="text-brand-teal">{t("about.hero.subtitle")}</span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-slate-200 md:text-base">
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
           <div className="mt-8">
             <Link href="/ContactUS">
-              <Button className="bg-emerald-500 px-6 py-3 text-sm font-semibold hover:bg-emerald-600 rounded-md">
+              <Button className="bg-brand-blue px-6 py-3 text-sm font-semibold hover:bg-brand-navy rounded-md">
                 {t("about.cta.discuss")} »
               </Button>
             </Link>
@@ -197,7 +197,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="max-w-md">
-              <div className="inline-block rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3 py-1 text-xs text-emerald-400 mb-4">
+              <div className="inline-block rounded-full bg-brand-blue/20 border border-brand-blue/40 px-3 py-1 text-xs text-brand-teal mb-4">
                 {t("about.section.howwework")}
               </div>
 
@@ -214,7 +214,7 @@ export default function AboutPage() {
               </p>
 
               <div className="mt-6 flex items-center space-x-2 md:space-x-3">
-                <div className="h-1 w-12 md:w-20 rounded bg-emerald-400"></div>
+                <div className="h-1 w-12 md:w-20 rounded bg-brand-teal"></div>
                 <div className="h-1 w-16 md:w-24 rounded bg-slate-600"></div>
                 <div className="h-1 w-16 md:w-24 rounded bg-slate-600 "></div>
                 <div className="h-1 w-16 md:w-24 rounded bg-slate-600 hidden md:block"></div>
@@ -222,13 +222,13 @@ export default function AboutPage() {
             </div>
 
             <div className="relative">
-              <div className="inline-block rounded-full bg-emerald-500/20 border border-emerald-400/30 px-3 py-1 text-xs text-emerald-400 mb-4">
+              <div className="inline-block rounded-full bg-brand-blue/20 border border-brand-blue/40 px-3 py-1 text-xs text-brand-teal mb-4">
                 {t("about.approach.emphasises")}
               </div>
               <div className="space-y-8 pl-6">
                 <div className="flex items-start gap-8">
                   <div className="flex flex-col items-center relative z-10">
-                    <div className="h-10 w-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold">
+                    <div className="h-10 w-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-semibold">
                       1
                     </div>
                   </div>
@@ -242,7 +242,7 @@ export default function AboutPage() {
 
                 <div className="flex items-start gap-6">
                   <div className="flex flex-col items-center relative z-10">
-                    <div className="h-10 w-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold">
+                    <div className="h-10 w-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-semibold">
                       2
                     </div>
                   </div>
@@ -256,7 +256,7 @@ export default function AboutPage() {
 
                 <div className="flex items-start gap-6">
                   <div className="flex flex-col items-center relative z-10">
-                    <div className="h-10 w-10 rounded-full bg-emerald-500 text-white flex items-center justify-center font-semibold">
+                    <div className="h-10 w-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-semibold">
                       3
                     </div>
                   </div>

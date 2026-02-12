@@ -13,17 +13,17 @@ export default function ServicesPage() {
       img: "/images/expertise/expersite_2.jpeg",
       content: (
         <>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.government.desc1")}
           </p>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.government.desc2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
             {t("expertise.government.includes")}
           </h5>
-          <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-slate-600">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>{t("expertise.government.item1")}</li>
             <li>{t("expertise.government.item2")}</li>
             <li>{t("expertise.government.item3")}</li>
@@ -37,17 +37,17 @@ export default function ServicesPage() {
       img: "/images/expertise/expersite_3.jpeg",
       content: (
         <>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.corporate.desc1")}
           </p>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.corporate.desc2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
             {t("expertise.corporate.includes")}
           </h5>
-          <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-slate-600">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>{t("expertise.corporate.item1")}</li>
             <li>{t("expertise.corporate.item2")}</li>
             <li>{t("expertise.corporate.item3")}</li>
@@ -61,17 +61,17 @@ export default function ServicesPage() {
       img: "/images/expertise/expersite_4.jpeg",
       content: (
         <>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.methodological.desc1")}
           </p>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.methodological.desc2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
             {t("expertise.methodological.includes")}
           </h5>
-          <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-slate-600">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>{t("expertise.methodological.item1")}</li>
             <li>{t("expertise.methodological.item2")}</li>
             <li>{t("expertise.methodological.item3")}</li>
@@ -85,17 +85,17 @@ export default function ServicesPage() {
       img: "/images/expertise/expersite_1.jpeg",
       content: (
         <>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.ai.desc1")}
           </p>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.ai.desc2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
             {t("expertise.ai.includes")}
           </h5>
-          <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-slate-600">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>{t("expertise.ai.item1")}</li>
             <li>{t("expertise.ai.item2")}</li>
             <li>{t("expertise.ai.item3")}</li>
@@ -109,17 +109,17 @@ export default function ServicesPage() {
       img: "/images/expertise/expersite_5.jpeg",
       content: (
         <>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.decision.desc1")}
           </p>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.decision.desc2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
             {t("expertise.decision.includes")}
           </h5>
-          <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-slate-600">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>{t("expertise.decision.item1")}</li>
             <li>{t("expertise.decision.item2")}</li>
             <li>{t("expertise.decision.item3")}</li>
@@ -132,7 +132,7 @@ export default function ServicesPage() {
       img: "/images/expertise/expersite_6.jpeg",
       content: (
         <>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="mb-4 text-sm text-slate-600">
             {t("expertise.closing.desc1")}
           </p>
           <p className="text-sm text-slate-600">
@@ -142,7 +142,7 @@ export default function ServicesPage() {
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
             {t("expertise.section.whatitincludes")}
           </h5>
-          <ul className="mt-3 list-disc pl-5 space-y-2 text-sm text-slate-600">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
             <li>{t("expertise.closing.item1")}</li>
             <li>{t("expertise.closing.item2")}</li>
             <li>{t("expertise.closing.item3")}</li>
@@ -153,8 +153,9 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
-      <section className="w-full relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
+    <main className="min-h-screen bg-background">
+      {/* Hero：深海军蓝背景 + 渐变标题 */}
+      <section className="w-full relative bg-brand-navy text-white py-8 md:py-12">
         {/* decorative pattern */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
@@ -166,52 +167,40 @@ export default function ServicesPage() {
           >
             <path
               d="M0 200 C150 120 350 280 600 200 C850 120 1050 280 1200 200"
-              stroke="rgba(255,255,255,0.03)"
+              stroke="rgba(255,255,255,0.08)"
               strokeWidth="18"
               fill="none"
             />
             <path
               d="M0 260 C200 200 400 320 600 260 C800 200 1000 320 1200 260"
-              stroke="rgba(255,255,255,0.025)"
+              stroke="rgba(255,255,255,0.05)"
               strokeWidth="14"
               fill="none"
             />
-            <path
-              d="M0 140 C180 80 380 200 600 140 C820 80 1020 200 1200 140"
-              stroke="rgba(255,255,255,0.02)"
-              strokeWidth="12"
-              fill="none"
-            />
           </svg>
-          <div className="absolute inset-0 bg-linear-to-br from-black/20 to-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/35 via-transparent to-brand-teal/35 pointer-events-none" />
         </div>
 
         <div className="mx-auto max-w-4xl px-4 text-center">
-          {/* <div className="inline-block rounded-full bg-black/20 px-3 py-1 text-xs text-white/70 mb-4">
-            Expertise
-          </div> */}
-
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-sans leading-tight text-white">
-            {/* Our */}
-            {/* <br /> */}
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-400 to-emerald-200">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-brand-blue to-brand-teal">
               {t("expertise.hero.title")}
             </span>
           </h1>
 
-          <p className="mx-auto mt-4 max-w-4xl text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm leading-relaxed text-slate-100 md:text-base">
             {t("expertise.hero.description1")}
           </p>
-          <p className="mx-auto mt-2 max-w-4xl text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mx-auto mt-2 max-w-4xl text-sm leading-relaxed text-slate-100 md:text-base">
             {t("expertise.hero.description2")}
           </p>
-          <p className="mx-auto mt-2 max-w-4xl text-sm leading-relaxed text-slate-200 md:text-base">
+          <p className="mx-auto mt-2 max-w-4xl text-sm leading-relaxed text-slate-100 md:text-base">
             {t("expertise.hero.description3")}
           </p>
 
           <div className="mt-8">
             <Link href="/ContactUS">
-              <Button className="bg-emerald-500 px-6 py-3 text-sm font-semibold hover:bg-emerald-600 rounded-md">
+              <Button className="rounded-md bg-gradient-to-r from-brand-blue to-brand-teal px-6 py-3 text-sm font-semibold text-white shadow-sm hover:shadow-md hover:brightness-105">
                 {t("expertise.cta.discuss")} »
               </Button>
             </Link>
@@ -220,7 +209,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Expertise list (zig-zag) */}
-      <section className="py-20 bg-slate-50">
+      <section className="bg-brand-soft-bg py-20">
         <div className="mx-auto max-w-5xl px-4 space-y-16">
           {expertiseItems.map((item, i) => (
             <div
@@ -230,18 +219,20 @@ export default function ServicesPage() {
               {i % 2 === 0 ? (
                 <>
                   <div className="md:order-1 md:max-w-xl">
-                    <h4 className="text-2xl font-semibold text-slate-900 mb-4">
+                    <h4 className="mb-4 text-2xl font-semibold text-brand-navy">
                       {item.title}
                     </h4>
-                    <div className="prose max-w-none">{item.content}</div>
+                    <div className="prose max-w-none text-sm text-slate-700">
+                      {item.content}
+                    </div>
                   </div>
 
                   <div className="md:order-2 flex justify-center md:justify-end">
-                    <div className="rounded-xl overflow-hidden shadow-lg border border-slate-100 max-w-md w-80">
+                    <div className="w-80 max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
                       <img
                         src={item.img}
                         alt={item.title}
-                        className="w-full aspect-square object-cover rounded-xl"
+                        className="w-full aspect-square object-cover"
                       />
                     </div>
                   </div>
@@ -249,20 +240,22 @@ export default function ServicesPage() {
               ) : (
                 <>
                   <div className="md:order-1 flex justify-center md:justify-start">
-                    <div className="rounded-xl overflow-hidden shadow-lg border border-slate-100 max-w-md w-80">
+                    <div className="w-80 max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
                       <img
                         src={item.img}
                         alt={item.title}
-                        className="w-full aspect-square object-cover rounded-xl"
+                        className="w-full aspect-square object-cover"
                       />
                     </div>
                   </div>
 
                   <div className="md:order-2 md:max-w-xl">
-                    <h4 className="text-2xl font-semibold text-slate-900 mb-4">
+                    <h4 className="mb-4 text-2xl font-semibold text-brand-navy">
                       {item.title}
                     </h4>
-                    <div className="prose max-w-none">{item.content}</div>
+                    <div className="prose max-w-none text-sm text-slate-700">
+                      {item.content}
+                    </div>
                   </div>
                 </>
               )}
@@ -271,8 +264,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative w-full bg-linear-to-br from-[#04182a] via-[#06213a] to-[#041827] text-white py-16">
+      {/* 底部 CTA 区块 */}
+      <section className="relative w-full bg-gradient-to-br from-brand-navy via-brand-navy to-brand-soft-navy text-white py-16">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
             className="absolute inset-0 h-full w-full opacity-10"
@@ -283,28 +276,28 @@ export default function ServicesPage() {
           >
             <path
               d="M0 200 C150 120 350 280 600 200 C850 120 1050 280 1200 200"
-              stroke="rgba(255,255,255,0.03)"
+              stroke="rgba(255,255,255,0.08)"
               strokeWidth="18"
               fill="none"
             />
             <path
               d="M0 260 C200 200 400 320 600 260 C800 200 1000 320 1200 260"
-              stroke="rgba(255,255,255,0.02)"
+              stroke="rgba(255,255,255,0.05)"
               strokeWidth="12"
               fill="none"
             />
           </svg>
-          <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
         </div>
 
-        <div className="mx-auto max-w-4xl px-4 text-center">
+        <div className="relative mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans">
             {t("expertise.final.title")}
           </h2>
 
           <div className="mt-8">
             <Link href="/services">
-              <Button className="bg-emerald-500 px-6 py-3 text-sm font-semibold hover:bg-emerald-600">
+              <Button className="bg-gradient-to-r from-brand-blue to-brand-teal px-6 py-3 text-sm font-semibold text-white shadow-sm hover:shadow-md hover:brightness-105">
                 {t("expertise.final.cta")} »
               </Button>
             </Link>

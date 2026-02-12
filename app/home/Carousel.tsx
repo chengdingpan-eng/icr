@@ -56,7 +56,7 @@ export default function Carousel({ images, interval = 4000 }: CarouselProps) {
           </div>
         ))}
 
-        {/* Dots */}
+        {/* 轮播指示点：统一使用品牌蓝色 */}
         <div className="absolute inset-x-0 bottom-4 flex justify-center gap-2 z-20">
           {images.map((_, i) => (
             <button
@@ -64,7 +64,7 @@ export default function Carousel({ images, interval = 4000 }: CarouselProps) {
               onClick={() => setIndex(i)}
               aria-label={`Go to slide ${i + 1}`}
               className={`h-2 w-8 rounded-full transition-colors ${
-                i === index ? "bg-emerald-500" : "bg-white/30"
+                i === index ? "bg-brand-blue" : "bg-white/30"
               }`}
             />
           ))}

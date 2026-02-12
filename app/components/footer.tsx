@@ -6,49 +6,48 @@ import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Footer() {
   const { t, language } = useLanguage();
+  const isArabic = language === "ar";
 
   return (
-    <footer
-      className="bg-slate-50 text-slate-900 border-t border-slate-200"
-      dir="ltr"
-    >
+    <footer className="bg-brand-navy text-slate-100" dir="ltr">
       <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Left */}
+        <div className="grid gap-10 md:grid-cols-[2fr,1.3fr,1.3fr]">
+          {/* 品牌区：Logo + 标语 */}
           <div>
-            <Link href="/" className="inline-block">
-              <div className="relative">
-                {/* Glow effect */}
-                <div className="absolute " />
+            <Link href="/" className="inline-flex items-center gap-3">
+              <div className="relative flex items-center">
                 <Image
                   src="/images/logo1.png"
                   alt="ICR Logo"
-                  width={100}
-                  height={100}
-                  className="object-contain relative z-10 drop-shadow-md"
+                  width={110}
+                  height={110}
+                  className="h-9 w-auto object-contain drop-shadow-sm"
                 />
               </div>
             </Link>
-            <div className="mt-4 text-sm text-slate-600">
+            <p className="mt-4 max-w-md text-sm text-slate-200">
               {t("footer.tagline")}
-            </div>
+            </p>
           </div>
 
-          {/* Middle - Quick Links */}
+          {/* 快速导航链接 */}
           <div>
             <h4
-              // className="text-lg font-semibold text-slate-900 mb-4"
-              className={`text-lg font-semibold text-slate-900 mb-4 ${
-                language === "ar" ? "text-right" : "text-left"
+              className={`text-xs font-semibold tracking-wide uppercase text-slate-200 ${
+                isArabic ? "text-right" : "text-left"
               }`}
             >
               {t("footer.quicklinks")}
             </h4>
-            <ul className="grid grid-cols-2 gap-2 text-sm text-slate-700">
+            <ul
+              className={`mt-4 grid grid-cols-2 gap-2 text-sm ${
+                isArabic ? "text-right" : "text-left"
+              }`}
+            >
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-emerald-600 transition-colors block"
+                  className="hover:text-brand-teal transition-colors"
                 >
                   {t("nav.services")}
                 </Link>
@@ -56,10 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/expertise"
-                  // className="hover:text-emerald-600 transition-colors block text-right"
-                  className={`hover:text-emerald-600 transition-colors block ${
-                    language === "ar" ? "text-right" : "text-left"
-                  }`}
+                  className="hover:text-brand-teal transition-colors"
                 >
                   {t("nav.expertise")}
                 </Link>
@@ -67,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/why-icr"
-                  className="hover:text-emerald-600 transition-colors block"
+                  className="hover:text-brand-teal transition-colors"
                 >
                   {t("nav.whyicr")}
                 </Link>
@@ -75,10 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  // className="hover:text-emerald-600 transition-colors block text-right"
-                  className={`hover:text-emerald-600 transition-colors block ${
-                    language === "ar" ? "text-right" : "text-left"
-                  }`}
+                  className="hover:text-brand-teal transition-colors"
                 >
                   {t("nav.about")}
                 </Link>
@@ -86,7 +79,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/careers"
-                  className="hover:text-emerald-600 transition-colors block"
+                  className="hover:text-brand-teal transition-colors"
                 >
                   {t("nav.careers")}
                 </Link>
@@ -94,10 +87,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/ContactUS"
-                  // className="hover:text-emerald-600 transition-colors block text-right"
-                  className={`hover:text-emerald-600 transition-colors block ${
-                    language === "ar" ? "text-right" : "text-left"
-                  }`}
+                  className="hover:text-brand-teal transition-colors"
                 >
                   {t("nav.contact")}
                 </Link>
@@ -105,33 +95,30 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Right - Contact */}
+          {/* 联系方式区块 */}
           <div>
             <h4
-              // className="text-lg font-semibold text-slate-900 mb-4"
-              className={`text-lg font-semibold text-slate-900 mb-4 ${
-                language === "ar" ? "text-right" : "text-left"
+              className={`text-xs font-semibold tracking-wide uppercase text-slate-200 ${
+                isArabic ? "text-right" : "text-left"
               }`}
             >
               {t("nav.contact")}
             </h4>
             <div
-              // className="text-sm text-slate-700"
-              className={`text-sm text-slate-700 ${
-                language === "ar" ? "text-right" : "text-left"
+              className={`mt-4 text-sm ${
+                isArabic ? "text-right" : "text-left"
               }`}
             >
               <a
                 href="mailto:info@icr-me.com"
-                // className="hover:text-emerald-600 transition-colors"
+                className="font-medium text-white hover:text-brand-teal transition-colors"
               >
                 info@icr-me.com
               </a>
             </div>
-
             <p
-              className={`mt-3 text-sm text-slate-600 ${
-                language === "ar" ? "text-right" : "text-left"
+              className={`mt-3 text-xs text-slate-300 ${
+                isArabic ? "text-right" : "text-left"
               }`}
             >
               {t("contact.email.desc")}
@@ -140,22 +127,22 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-slate-300">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:flex sm:items-center sm:justify-between">
-          <div className="text-sm text-slate-600">
-            © 2026 Insight Consultancy & Research. All rights reserved.
-          </div>
+      <div className="border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 py-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-slate-300">
+            © 2026 Insight Consultancy &amp; Research. All rights reserved.
+          </p>
 
-          <div className="mt-3 sm:mt-0 text-sm text-slate-700">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-slate-200">
             <Link
               href="/privacy"
-              className="hover:text-emerald-600 transition-colors mr-4"
+              className="hover:text-brand-teal transition-colors"
             >
               {t("footer.privacy")}
             </Link>
             <Link
               href="/terms"
-              className="hover:text-emerald-600 transition-colors mr-4"
+              className="hover:text-brand-teal transition-colors"
             >
               {t("footer.terms")}
             </Link>

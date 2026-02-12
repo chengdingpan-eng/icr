@@ -20,7 +20,7 @@ export default function Navbar() {
           key={lang.code}
           onClick={() => changeLanguage(lang.code)}
           className={`w-full text-left px-4 py-2 hover:bg-slate-100 ${
-            language === lang.code ? "bg-emerald-50 text-emerald-600" : ""
+            language === lang.code ? "bg-brand-blue/5 text-brand-blue" : ""
           }`}
         >
           <span className="mr-2">{lang.flag}</span>

@@ -28,11 +28,11 @@ export default function LocationPermissionBanner() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-md z-50 bg-slate-900 text-white p-4 rounded-lg shadow-2xl border border-slate-700">
+    <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-md z-50 bg-brand-navy text-slate-100 p-4 rounded-lg shadow-2xl border border-slate-700">
       <div className="flex items-start gap-3">
         <div className="flex-shrink-0">
           <svg
-            className="w-6 h-6 text-emerald-400"
+            className="w-6 h-6 text-brand-teal"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -82,7 +82,7 @@ export default function LocationPermissionBanner() {
       <div className="mt-3 flex gap-2">
         <Button
           size="sm"
-          className="flex-1 bg-emerald-500 hover:bg-emerald-600"
+          className="flex-1 bg-brand-blue hover:bg-brand-navy"
           onClick={() => window.location.reload()}
         >
           Allow Location

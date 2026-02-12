@@ -128,7 +128,7 @@ export default function ContactUs() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-hidden bg-background">
       <section className="w-full relative  bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
         {/* decorative pattern */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -169,7 +169,7 @@ export default function ContactUs() {
           <h1 className="mx-auto max-w-4xl text-3xl font-sans leading-tight text-white md:text-5xl">
             {t("contact.hero.title")}
             <br />
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-emerald-400 to-emerald-200">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-brand-blue to-brand-teal">
               {t("contact.hero.subtitle")}
             </span>
           </h1>
@@ -184,12 +184,12 @@ export default function ContactUs() {
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               onClick={scrollToForm}
-              className="bg-emerald-500 px-6 py-3 text-sm font-semibold hover:bg-emerald-600"
+              className="bg-gradient-to-r from-brand-blue to-brand-teal px-6 py-3 text-sm font-semibold shadow-sm hover:shadow-md hover:brightness-105"
             >
               {t("contact.cta.discuss")} »
             </Button>
             <Link href="/services">
-              <Button className="bg-transparent border border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-black">
+              <Button className="bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-brand-navy">
                 {t("contact.cta.services")}
               </Button>
             </Link>
@@ -207,7 +207,7 @@ export default function ContactUs() {
 
             <div className="divide-y divide-slate-200 bg-white rounded-lg p-6 shadow-sm">
               <div className="flex gap-4 py-6 items-center">
-                <div className="h-12 w-12 flex items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                <div className="h-12 w-12 flex items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
@@ -218,7 +218,7 @@ export default function ContactUs() {
                     {t("contact.email.desc")}{" "}
                     <a
                       href="mailto:info@icr-me.com"
-                      className="text-emerald-600 font-medium"
+                      className="text-brand-blue font-medium hover:text-brand-navy transition-colors"
                     >
                       info@icr-me.com
                     </a>
@@ -262,8 +262,8 @@ export default function ContactUs() {
             {/* Pulse indicator */}
             {showIndicator && (
               <div className="absolute -inset-4 rounded-3xl animate-pulse">
-                <div className="absolute inset-0 rounded-3xl bg-emerald-400/20 animate-ping" />
-                <div className="absolute inset-0 rounded-3xl bg-emerald-400/30 border-2 border-emerald-400" />
+                <div className="absolute inset-0 rounded-3xl bg-brand-blue/20 animate-ping" />
+                <div className="absolute inset-0 rounded-3xl bg-brand-blue/30 border-2 border-brand-blue/50" />
               </div>
             )}
 
@@ -282,7 +282,7 @@ export default function ContactUs() {
                     name="name"
                     required
                     disabled={isSubmitting}
-                    className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50"
+                    className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 disabled:opacity-50"
                   />
                 </div>
                 <div>
@@ -295,7 +295,7 @@ export default function ContactUs() {
                     type="email"
                     required
                     disabled={isSubmitting}
-                    className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50"
+                    className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 disabled:opacity-50"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -305,7 +305,7 @@ export default function ContactUs() {
                   <input
                     name="company"
                     disabled={isSubmitting}
-                    className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50"
+                    className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -320,7 +320,7 @@ export default function ContactUs() {
                   rows={6}
                   required
                   disabled={isSubmitting}
-                  className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 disabled:opacity-50"
+                  className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 disabled:opacity-50"
                 ></textarea>
               </div>
 
@@ -333,9 +333,9 @@ export default function ContactUs() {
                   onClick={() => !isSubmitting && fileInputRef.current?.click()}
                   className={`w-full rounded-md border-2 border-dashed ${
                     selectedFile
-                      ? "border-emerald-400 bg-emerald-400/5"
+                      ? "border-brand-teal/60 bg-brand-teal/5"
                       : "border-slate-700 bg-transparent"
-                  } px-4 py-8 text-center cursor-pointer hover:border-emerald-400 transition-colors ${
+                  } px-4 py-8 text-center cursor-pointer hover:border-brand-teal transition-colors ${
                     isSubmitting ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
@@ -351,8 +351,8 @@ export default function ContactUs() {
                   <div className="flex flex-col items-center justify-center">
                     {selectedFile ? (
                       <>
-                        <FileText className="h-8 w-8 text-emerald-400 mb-2" />
-                        <span className="text-emerald-400 text-sm font-medium">
+                        <FileText className="h-8 w-8 text-brand-teal mb-2" />
+                        <span className="text-brand-teal text-sm font-medium">
                           {selectedFile.name}
                         </span>
                         <span className="text-slate-500 text-xs mt-1">
@@ -374,7 +374,7 @@ export default function ContactUs() {
                       </>
                     ) : (
                       <>
-                        <Upload className="h-8 w-8 text-emerald-400 mb-2" />
+                        <Upload className="h-8 w-8 text-brand-teal mb-2" />
                         <span className="text-slate-400 text-sm">
                           {t("contact.form.upload.instruction")}
                         </span>
@@ -393,7 +393,7 @@ export default function ContactUs() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full rounded-md bg-emerald-500 py-3 text-sm font-semibold hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                className="mt-6 w-full rounded-md bg-brand-blue py-3 text-sm font-semibold hover:bg-brand-navy disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -425,10 +425,10 @@ export default function ContactUs() {
               </button>
 
               {/* Confidentiality Notice */}
-              <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-emerald-50/10 border border-emerald-400/20">
+              <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-brand-blue/5 border border-brand-blue/30">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                  className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -453,7 +453,7 @@ export default function ContactUs() {
       <section className="w-full py-12 bg-gradient-to-br from-[#0a1f2e] to-[#041a2e]">
         <div className="mx-auto max-w-5xl px-4">
           <div className="text-center mb-12">
-            <div className="inline-block rounded-full bg-emerald-500/20 border border-emerald-400/30 px-4 py-1 text-sm text-emerald-400 font-semibold mb-4 shadow-sm">
+            <div className="inline-block rounded-full bg-brand-blue/15 border border-brand-blue/40 px-4 py-1 text-sm text-brand-teal font-semibold mb-4 shadow-sm">
               {t("contact.next.badge")}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -466,15 +466,15 @@ export default function ContactUs() {
 
           <div className="relative">
             {/* Timeline line - vertical on mobile, hidden on desktop */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-emerald-400/30 md:hidden" />
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-brand-blue/35 md:hidden" />
 
             {/* Timeline line - horizontal on desktop */}
-            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-emerald-400/30" />
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-brand-blue/35" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
               {/* Step 1 */}
               <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg flex-shrink-0">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg flex-shrink-0">
                   <span className="text-2xl font-bold text-white">01</span>
                 </div>
                 <div className="ml-6 md:ml-0 md:mt-6">
@@ -489,7 +489,7 @@ export default function ContactUs() {
 
               {/* Step 2 */}
               <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg flex-shrink-0">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg flex-shrink-0">
                   <span className="text-2xl font-bold text-white">02</span>
                 </div>
                 <div className="ml-6 md:ml-0 md:mt-6">
@@ -504,7 +504,7 @@ export default function ContactUs() {
 
               {/* Step 3 */}
               <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg shrink-0">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg shrink-0">
                   <span className="text-2xl font-bold text-white">03</span>
                 </div>
                 <div className="ml-6 md:ml-0 md:mt-6">
@@ -525,7 +525,7 @@ export default function ContactUs() {
               {t("contact.urgent")}{" "}
               <a
                 href="mailto:info@icr-me.com"
-                className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors"
+                className="text-brand-teal font-semibold hover:text-brand-blue transition-colors"
               >
                 info@icr-me.com
               </a>

@@ -10,7 +10,7 @@ export default function TermsPage() {
     termsTranslations.en.terms;
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="w-full relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
         {/* decorative pattern */}
@@ -51,7 +51,7 @@ export default function TermsPage() {
           <h1 className="mx-auto max-w-3xl text-3xl font-sans leading-tight text-white md:text-5xl">
             {terms.title}
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-emerald-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-teal">
               {terms.company}
             </span>
           </h1>
@@ -74,8 +74,8 @@ export default function TermsPage() {
           {/* Section 1 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">1</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">1</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section1.title}
@@ -90,8 +90,8 @@ export default function TermsPage() {
           {/* Section 2 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">2</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">2</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section2.title}
@@ -129,8 +129,8 @@ export default function TermsPage() {
           {/* Section 3 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">3</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">3</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section3.title}
@@ -145,8 +145,8 @@ export default function TermsPage() {
           {/* Section 4 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">4</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">4</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section4.title}
@@ -161,8 +161,8 @@ export default function TermsPage() {
           {/* Section 5 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">5</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">5</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section5.title}
@@ -177,8 +177,8 @@ export default function TermsPage() {
           {/* Section 6 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">6</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">6</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section6.title}
@@ -192,8 +192,8 @@ export default function TermsPage() {
           {/* Section 7 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">7</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">7</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section7.title}
@@ -207,8 +207,8 @@ export default function TermsPage() {
           {/* Section 8 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">8</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">8</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section8.title}
@@ -230,8 +230,8 @@ export default function TermsPage() {
           {/* Section 9 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">9</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">9</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section9.title}
@@ -250,8 +250,8 @@ export default function TermsPage() {
           {/* Section 10 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">10</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">10</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section10.title}
@@ -265,8 +265,8 @@ export default function TermsPage() {
           {/* Section 11 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">11</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">11</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section11.title}
@@ -280,8 +280,8 @@ export default function TermsPage() {
           {/* Section 12 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">12</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">12</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section12.title}
@@ -299,8 +299,8 @@ export default function TermsPage() {
           {/* Section 13 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">13</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">13</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section13.title}
@@ -314,8 +314,8 @@ export default function TermsPage() {
           {/* Section 14 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">14</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">14</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {terms.section14.title}
@@ -327,7 +327,7 @@ export default function TermsPage() {
           </div>
 
           {/* Contact Section */}
-          <div className="mt-12 p-6 bg-emerald-50 rounded-xl border border-emerald-100">
+          <div className="mt-12 p-6 bg-brand-blue/5 rounded-xl border border-brand-blue/20">
             <h2 className="text-2xl font-bold text-slate-800 mb-4">
               {terms.section15.title}
             </h2>
@@ -339,7 +339,7 @@ export default function TermsPage() {
                 {terms.contact}{" "}
                 <a
                   href="mailto:info@icr-me.com"
-                  className="text-emerald-600 hover:text-emerald-700 font-medium"
+                  className="text-brand-blue hover:text-brand-navy font-medium"
                 >
                   {terms.section15.email}
                 </a>

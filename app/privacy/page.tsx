@@ -10,7 +10,7 @@ export default function PrivacyPage() {
       ?.privacy || privacyTranslations.en.privacy;
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="w-full relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
         {/* decorative pattern */}
@@ -51,7 +51,7 @@ export default function PrivacyPage() {
           <h1 className="mx-auto max-w-3xl text-3xl font-sans leading-tight text-white md:text-5xl">
             {privacy.title}
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-emerald-600">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-teal">
               {privacy.tagline}
             </span>
           </h1>
@@ -72,8 +72,8 @@ export default function PrivacyPage() {
           {/* Section 1 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">1</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">1</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section1.title}
@@ -112,8 +112,8 @@ export default function PrivacyPage() {
           {/* Section 2 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">2</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">2</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section2.title}
@@ -132,8 +132,8 @@ export default function PrivacyPage() {
           {/* Section 3 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">3</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">3</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section3.title}
@@ -154,8 +154,8 @@ export default function PrivacyPage() {
           {/* Section 4 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">4</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">4</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section4.title}
@@ -179,8 +179,8 @@ export default function PrivacyPage() {
           {/* Section 5 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">5</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">5</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section5.title}
@@ -204,8 +204,8 @@ export default function PrivacyPage() {
           {/* Section 6 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">6</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">6</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section6.title}
@@ -220,8 +220,8 @@ export default function PrivacyPage() {
           {/* Section 7 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">7</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">7</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section7.title}
@@ -235,8 +235,8 @@ export default function PrivacyPage() {
           {/* Section 8 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">8</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">8</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section8.title}
@@ -250,8 +250,8 @@ export default function PrivacyPage() {
           {/* Section 9 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">9</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">9</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section9.title}
@@ -265,8 +265,8 @@ export default function PrivacyPage() {
           {/* Section 10 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">10</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">10</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section10.title}
@@ -280,8 +280,8 @@ export default function PrivacyPage() {
           {/* Section 11 */}
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                <span className="text-emerald-600 font-bold text-lg">11</span>
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
+                <span className="text-brand-blue font-bold text-lg">11</span>
               </div>
               <h2 className="text-2xl font-bold text-slate-800">
                 {privacy.section11.title}
@@ -293,7 +293,7 @@ export default function PrivacyPage() {
           </div>
 
           {/* Contact Section */}
-          <div className="mt-12 p-6 bg-emerald-50 rounded-xl border border-emerald-100">
+          <div className="mt-12 p-6 bg-brand-blue/5 rounded-xl border border-brand-blue/20">
             <h2 className="text-2xl font-bold text-slate-800 mb-4">
               {privacy.section12.title}
             </h2>
@@ -304,7 +304,7 @@ export default function PrivacyPage() {
               <p>
                 <a
                   href="mailto:info@icr-me.com"
-                  className="text-emerald-600 hover:text-emerald-700 font-medium"
+                  className="text-brand-blue hover:text-brand-navy font-medium"
                 >
                   {privacy.section12.email}
                 </a>
