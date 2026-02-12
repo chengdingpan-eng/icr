@@ -11,7 +11,7 @@ export default function CareerPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const benefits = t("careers.section1.cards", { returnObjects: true });
+  const benefits = t("careers.section1.cards", { returnObjects: true }) as Record<string, { title: string; description: string }>;
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -144,7 +144,7 @@ export default function CareerPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {Object.values(benefits).map((benefit: { title: string, description: string }, idx) => {
+            {Object.values(benefits).map((benefit, idx) => {
               const isHighlighted = idx === 1;
               return (
               <div
@@ -325,7 +325,12 @@ export default function CareerPage() {
           </div>
           <div className="relative flex flex-col items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-60 gap-y-30 z-10">
-              {Object.values(t("careers.process.steps", { returnObjects: true })).map((step: { title: string, description: string }, index: number) => (
+              {Object.values(
+                t("careers.process.steps", { returnObjects: true }) as Record<
+                  string,
+                  { title: string; description: string }
+                >,
+              ).map((step, index) => (
                 <div key={index} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-md flex flex-col justify-center items-center w-full max-w-[320px] min-h-[160px] text-center p-7">
                   <h3 className="font-bold text-lg text-white mb-2">
                     {step.title}

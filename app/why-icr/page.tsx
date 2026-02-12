@@ -17,6 +17,11 @@ import { useLanguage } from "../contexts/LanguageContext";
 export default function Page() {
   const { t, language } = useLanguage();
 
+  const successCards = t("why.success.cards", { returnObjects: true }) as Record<
+    string,
+    { title: string; description: string }
+  >;
+
   return (
     <main>
       <section className="relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] py-8">
@@ -288,7 +293,7 @@ export default function Page() {
           </p>
 
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center max-w-4xl mx-auto">
-            {t("why.industries.list").split(',').map((industry: string, index: number) => (
+            {(t("why.industries.list", { returnObjects: true }) as string[]).map((industry: string, index: number) => (
                 <div key={index} className="rounded-xl bg-brand-blue/5 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
                     <div className="text-sm font-medium text-slate-300">
                         {industry.trim()}
@@ -321,8 +326,8 @@ export default function Page() {
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {Object.keys(t("why.success.cards", { returnObjects: true })).map((key, index) => {
-              const card = t(`why.success.cards.${key}`, { returnObjects: true });
+            {Object.keys(successCards).map((key, index) => {
+              const card = successCards[key];
               const isHighlighted = index === 1 || index === 4;
               return (
                 <div

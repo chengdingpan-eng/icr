@@ -7,6 +7,18 @@ import { useLanguage } from "../contexts/LanguageContext";
 export default function ServicesPage() {
   const { t } = useLanguage();
 
+  const getList = (key: string): string[] => {
+    const value = t(key, { returnObjects: true }) as unknown;
+
+    if (Array.isArray(value)) {
+      return value as string[];
+    }
+    if (typeof value === "string") {
+      return value.split("\n");
+    }
+    return [];
+  };
+
   const expertiseItems = [
     {
       title: t("expertise.sections.governmental.title"),
@@ -23,11 +35,11 @@ export default function ServicesPage() {
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
             {t("expertise.sections.governmental.includes_title")}
           </h5>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            {t("expertise.sections.governmental.includes_list").split(',').map((item: string, index: number) => (
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
+              {getList("expertise.sections.governmental.includes_list").map((item, index) => (
                 <li key={index}>{item}</li>
-            ))}
-          </ul>
+              ))}
+            </ul>
         </>
       ),
     },
@@ -47,8 +59,8 @@ export default function ServicesPage() {
             {t("expertise.sections.corporate.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-             {t("expertise.sections.corporate.includes_list").split(',').map((item: string, index: number) => (
-                <li key={index}>{item}</li>
+            {getList("expertise.sections.corporate.includes_list").map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </>
@@ -70,8 +82,8 @@ export default function ServicesPage() {
             {t("expertise.sections.methodological.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-             {t("expertise.sections.methodological.includes_list").split(',').map((item: string, index: number) => (
-                <li key={index}>{item}</li>
+            {getList("expertise.sections.methodological.includes_list").map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </>
@@ -93,8 +105,8 @@ export default function ServicesPage() {
             {t("expertise.sections.ai.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-             {t("expertise.sections.ai.includes_list").split(',').map((item: string, index: number) => (
-                <li key={index}>{item}</li>
+            {getList("expertise.sections.ai.includes_list").map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </>
@@ -116,8 +128,8 @@ export default function ServicesPage() {
             {t("expertise.sections.decision.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-             {t("expertise.sections.decision.includes_list").split(',').map((item: string, index: number) => (
-                <li key={index}>{item}</li>
+            {getList("expertise.sections.decision.includes_list").map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </>
@@ -139,8 +151,8 @@ export default function ServicesPage() {
             {t("expertise.sections.closing.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-             {t("expertise.sections.closing.includes_list").split(',').map((item: string, index: number) => (
-                <li key={index}>{item}</li>
+            {getList("expertise.sections.closing.includes_list").map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         </>

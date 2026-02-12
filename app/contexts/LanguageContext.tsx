@@ -1,94 +1,105 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { translations } from "../translations";
-import { detectLanguageFromGeolocation } from "../utils/detectLanguage";
+import React, { createContext, useContext, useState } from "react";
+import { translationsCombined, type Language } from "../translations";
 
-type Language = "en" | "zh" | "ar";
+interface TranslateOptions {
+  returnObjects?: boolean;
+}
+
+// 翻译值可以是字符串、字符串数组或嵌套对象树
+export type TranslationPrimitive = string | string[] | Record<string, unknown>;
+
+// t 函数签名：
+// - 默认返回 string
+// - 当传入 { returnObjects: true } 时，返回对象/数组，由调用方自行断言具体类型
+export type TranslateFn = {
+  (key: string): string;
+  (key: string, options: TranslateOptions & { returnObjects?: false }): string;
+  <T extends TranslationPrimitive>(
+    key: string,
+    options: TranslateOptions & { returnObjects: true },
+  ): T;
+};
 
 interface LanguageContextType {
   language: Language;
   changeLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: TranslateFn;
   isDetecting: boolean;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
-);
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>("en");
-  const [isDetecting, setIsDetecting] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    async function initializeLanguage() {
-      try {
-        const savedLanguage = localStorage.getItem(
-          "language"
-        ) as Language | null;
-        const manuallySet =
-          localStorage.getItem("languageManuallySet") === "true";
-
-        if (savedLanguage && manuallySet) {
-          setLanguage(savedLanguage);
-          setIsDetecting(false);
-          return;
-        }
-
-        const cachedLanguage = localStorage.getItem(
-          "detectedLanguage"
-        ) as Language | null;
-        const locationGranted =
-          localStorage.getItem("locationPermissionGranted") === "true";
-
-        if (cachedLanguage && locationGranted) {
-          setLanguage(cachedLanguage);
-          localStorage.setItem("language", cachedLanguage);
-          setIsDetecting(false);
-          return;
-        }
-
-        const detectedLang = await detectLanguageFromGeolocation();
-        setLanguage(detectedLang);
-        localStorage.setItem("language", detectedLang);
-        localStorage.setItem("detectedLanguage", detectedLang);
-      } catch (error) {
-        console.error("Error initializing language:", error);
-        setLanguage("en");
-      } finally {
-        setIsDetecting(false);
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("language") as Language | null;
+      if (saved) {
+        return saved;
       }
     }
-
-    initializeLanguage();
-  }, [isMounted]);
+    return "en";
+  });
+  // 当前不再做异步探测，直接视为已完成
+  const [isDetecting] = useState(false);
 
   const changeLanguage = (lang: Language) => {
     setLanguage(lang);
     if (typeof window !== "undefined") {
       localStorage.setItem("language", lang);
+      // 标记为用户手动切换语言，避免之后被地理定位覆盖
       localStorage.setItem("languageManuallySet", "true");
     }
   };
 
-  const t = (key: string): string => {
-    const langTranslations = translations[language] || translations.en;
-    const result = key.split('.').reduce((obj, k) => obj && obj[k], langTranslations);
-    return result || key;
+  const getNestedValue = (obj: unknown, path: string[]): unknown => {
+    return path.reduce<unknown>((acc, segment) => {
+      if (
+        acc &&
+        typeof acc === "object" &&
+        segment in (acc as Record<string, unknown>)
+      ) {
+        return (acc as Record<string, unknown>)[segment];
+      }
+      return undefined;
+    }, obj);
   };
 
+  const tImpl = (key: string, options?: TranslateOptions): TranslationPrimitive => {
+    const langTranslations = translationsCombined[language] ?? translationsCombined.en;
+    const fallbackTranslations = translationsCombined.en;
+
+    const segments = key.split(".");
+    const pathsToTry: string[][] = [segments, segments.slice(1)];
+
+    for (const path of pathsToTry) {
+      const value =
+        getNestedValue(langTranslations, path) ??
+        getNestedValue(fallbackTranslations, path);
+
+      if (value !== undefined) {
+        if (typeof value === "string") {
+          return value;
+        }
+
+        if (options?.returnObjects) {
+          return value as TranslationPrimitive;
+        }
+
+        // 当请求的是对象/数组但未显式要求 returnObjects 时，避免渲染 [object Object]
+        return key;
+      }
+    }
+
+    // 若所有语言中都未找到，对应 key 直接回显，便于排查遗漏
+    return key;
+  };
+
+  const t = tImpl as TranslateFn;
+
   return (
-    <LanguageContext.Provider
-      value={{ language, changeLanguage, t, isDetecting }}
-    >
+    <LanguageContext.Provider value={{ language, changeLanguage, t, isDetecting }}>
       {children}
     </LanguageContext.Provider>
   );

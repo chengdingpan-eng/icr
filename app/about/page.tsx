@@ -180,7 +180,7 @@ export default function AboutPage() {
                 {t("about.howWeWork.description3")}
               </div>
               <div className="space-y-8 pl-6">
-                {t("about.howWeWork.steps", { returnObjects: true }).map((step: string, index: number) => (
+                {(t("about.howWeWork.steps", { returnObjects: true }) as string[]).map((step, index) => (
                     <div key={index} className="flex items-start gap-8">
                         <div className="flex flex-col items-center relative z-10">
                         <div className="h-10 w-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-semibold">

@@ -423,7 +423,12 @@ export default function ContactUs() {
             <div className="absolute left-0 right-0 top-12 hidden h-0.5 bg-brand-blue/35 md:block" />
 
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
-              {Object.values(t("contact.nextSteps.steps", { returnObjects: true })).map((step: { title: string, description: string }, index: number) => (
+              {Object.values(
+                t("contact.nextSteps.steps", { returnObjects: true }) as Record<
+                  string,
+                  { title: string; description: string }
+                >,
+              ).map((step, index) => (
                 <div key={index} className="relative flex items-start text-left md:flex-col md:items-center md:text-center">
                   <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg">
                     <span className="text-2xl font-bold text-white">{`0${index + 1}`}</span>
