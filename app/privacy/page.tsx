@@ -1,105 +1,62 @@
-
 "use client";
 
-import { useLanguage } from "../contexts/LanguageContext";
-
 export default function PrivacyPage() {
-  const { t } = useLanguage();
-  
-  const sections = t("privacy.sections", { returnObjects: true }) as Record<string, {
-    title: string;
-    content?: string;
-    footer?: string;
-    subsections?: {
-        title: string;
-        content: string;
-        list?: string[];
-    }[];
-    list?: string[];
-  }>;
-
-  const section12 = t("privacy.sections.section12", {returnObjects: true}) as {
-    title: string,
-    content: string,
-    footer: string
-  }
-
   return (
     <main className="min-h-screen bg-background">
-      <section className="w-full relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
+      <section className="bg-brand-navy py-10 text-white md:py-14">
         <div className="mx-auto max-w-3xl px-4 text-center">
-          <h1 className="mx-auto max-w-3xl text-3xl font-sans leading-tight text-white md:text-5xl">
-            {t("privacy.hero.title")}
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-teal">
-              {t("privacy.hero.subtitle")}
-            </span>
+          <h1 className="text-3xl font-semibold leading-tight md:text-4xl">
+            隐私政策
           </h1>
-          <p className="mx-auto mt-2 max-w-xl text-base text-slate-200">
-            {t("privacy.hero.date")}
+          <p className="mt-3 text-sm text-slate-200 md:text-base">
+            本页面概述 ICR 在收集、使用与保护个人信息方面的基本原则。实际合作项目中，如存在更为具体的隐私条款与数据处理协议，将以双方签署的合同及补充协议为准。
           </p>
         </div>
       </section>
 
-      <section className="w-full bg-gradient-to-b from-[#f7fafc] to-white py-12">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="mb-12">
-            <p className="text-slate-700 leading-relaxed">{t("privacy.hero.description")}</p>
-          </div>
+      <section className="bg-slate-50 py-12">
+        <div className="mx-auto max-w-4xl space-y-8 px-4 text-sm text-slate-700 md:text-base">
+          <section>
+            <h2 className="text-lg font-semibold text-brand-navy">1. 信息收集范围</h2>
+            <p className="mt-2">
+              我们可能在以下情形中收集与你相关的信息：你通过网站表单或邮件主动提供的联系方式与项目背景信息；你参与研究项目（如问卷、访谈等）过程中提供的回答；作为客户方代表在项目沟通中形成的往来记录。
+            </p>
+          </section>
 
-          {Object.values(sections).map((section, index) => (
-            <div key={index} className="mb-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center">
-                  <span className="text-brand-blue font-bold text-lg">{index + 1}</span>
-                </div>
-                <h2 className="text-2xl font-bold text-slate-800">{section.title}</h2>
-              </div>
-              <div className="ml-13 space-y-4">
-                {section.content && <p className="text-slate-600">{section.content}</p>}
-                {section.footer && <p className="text-sm text-slate-500 mt-2">{section.footer}</p>}
-                {section.subsections && section.subsections.map((sub, subIdx) => (
-                    <div key={subIdx}>
-                        <h3 className="text-lg font-semibold text-slate-700 mt-4">{sub.title}</h3>
-                        <p className="text-slate-600">{sub.content}</p>
-                        {sub.list && (
-                            <ul className="list-disc list-inside text-slate-600 space-y-1 ml-4">
-                                {sub.list.map((li, i) => <li key={i}>{li}</li>)}
-                            </ul>
-                        )}
-                    </div>
-                ))}
-                {section.list && (
-                    <ul className="list-disc list-inside text-slate-600 space-y-1 ml-4">
-                        {section.list.map((li, i) => <li key={i}>{li}</li>)}
-                    </ul>
-                )}
-              </div>
-            </div>
-          ))}
-          
-           <div className="mt-12 p-6 bg-brand-blue/5 rounded-xl border border-brand-blue/20">
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">
-              {section12.title}
-            </h2>
-            <div className="space-y-2 text-slate-700">
-              <p>
-                <strong>{section12.content.split('\n')[0]}</strong>
-              </p>
-              <p>
-                <a
-                  href={`mailto:${section12.content.split('\n')[1]}`}
-                  className="text-brand-blue hover:text-brand-navy font-medium"
-                >
-                  {section12.content.split('\n')[1]}
-                </a>
-              </p>
-              <p className="text-sm text-slate-600 mt-2">
-                {section12.footer}
-              </p>
-            </div>
-          </div>
+          <section>
+            <h2 className="text-lg font-semibold text-brand-navy">2. 信息使用目的</h2>
+            <p className="mt-2">
+              收集到的信息仅用于与你建立联系、评估与执行研究或咨询项目，以及在获得授权的前提下，用于改进我们的服务与方法。除法律法规要求或经你明确同意外，我们不会将可识别个人身份的信息提供给第三方用于其自身的市场推广目的。
+            </p>
+          </section>
 
+          <section>
+            <h2 className="text-lg font-semibold text-brand-navy">3. 数据存储与安全</h2>
+            <p className="mt-2">
+              我们会采取合理的技术与管理措施保护数据安全，限制对数据的访问权限，并在项目结束后按内部政策或合同约定保留或删除数据。如果你作为受访者参与研究，数据通常会以匿名或去标识化形式进行汇总与分析。
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-brand-navy">4. 你的权利</h2>
+            <p className="mt-2">
+              在法律允许的范围内，你可以请求查阅、更正或删除与你相关的个人信息，也可以撤回先前授予的同意。你可通过下方联系方式与我们取得联系，我们会在合理时间内进行响应。
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-semibold text-brand-navy">5. 联系方式</h2>
+            <p className="mt-2">
+              如对本隐私政策或你的个人信息有任何疑问，请发送邮件至
+              <a
+                href="mailto:info@icr-me.com"
+                className="mx-1 font-semibold text-brand-blue hover:text-brand-teal"
+              >
+                info@icr-me.com
+              </a>
+              ，我们将尽力为你解答。
+            </p>
+          </section>
         </div>
       </section>
     </main>

@@ -1,361 +1,174 @@
-
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import {
-  Users,
-  Database,
-  BarChart2,
-  FileText,
-  Award,
-  Zap,
-  Wrench,
-} from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { Users, Database, BarChart2, FileText, Award, Zap } from "lucide-react";
+import { GradientCTAButton } from "../components/GradientCTAButton";
+import { MethodTimeline, type MethodStep } from "../components/MethodTimeline";
 
-export default function Page() {
-  const { t, language } = useLanguage();
+const SUCCESS_FACTORS = [
+  {
+    icon: Users,
+    title: "本地团队 + 国际视角",
+    description:
+      "团队成员兼具本地市场深度与在国际研究机构工作的经验，既懂方法论，也懂区域语境与实际执行。",
+  },
+  {
+    icon: Database,
+    title: "严谨的数据与样本质量",
+    description:
+      "从样本设计到数据清洗，都遵循国际研究标准，并结合本地经验处理难以覆盖的人群与场景。",
+  },
+  {
+    icon: BarChart2,
+    title: "可视化与建模能力",
+    description:
+      "以清晰的仪表盘和简洁的建模结果呈现复杂数据，帮助非数据背景的决策者快速抓住重点。",
+  },
+  {
+    icon: FileText,
+    title: "故事化的洞察呈现",
+    description:
+      "通过场景化案例与故事线，把抽象的数据转译为具体、可执行的行动建议与路线图。",
+  },
+  {
+    icon: Award,
+    title: "长期合作与知识沉淀",
+    description:
+      "在长期合作中沉淀行业知识与组织背景，避免每个项目都从头再来，持续提升洞察效率。",
+  },
+  {
+    icon: Zap,
+    title: "项目节奏与灵活交付",
+    description:
+      "理解政策与业务节奏的压力，提供敏捷更新与阶段性输出，而不仅仅是一次性报告。",
+  },
+];
 
-  const successCards = t("why.success.cards", { returnObjects: true }) as Record<
-    string,
-    { title: string; description: string }
-  >;
+const PROCESS_STEPS: MethodStep[] = [
+  {
+    label: "01",
+    title: "一起定义问题",
+    description: "与决策团队共创问题树，明确要支持的关键决策与需要影响的对象。",
+  },
+  {
+    label: "02",
+    title: "设计合适的证据路径",
+    description: "综合考虑时间、预算与可用数据，选择最合适而非最复杂的研究与分析组合。",
+  },
+  {
+    label: "03",
+    title: "严谨执行与透明沟通",
+    description: "在项目关键节点进行中期对齐，确保方向正确、过程中发现的新问题被纳入。",
+  },
+  {
+    label: "04",
+    title: "共创行动框架",
+    description: "围绕“我们接下来要做什么”梳理行动优先级，并明确如何衡量成效。",
+  },
+];
 
+export default function WhyICRPage() {
   return (
-    <main>
-      <section className="relative bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] py-8">
-        <div className="absolute inset-0 -z-10 opacity-20">
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 800 400"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice"
-            aria-hidden
-          >
-            <defs>
-              <pattern
-                id="dots"
-                width="32"
-                height="32"
-                patternUnits="userSpaceOnUse"
-              >
-                <rect width="4" height="4" fill="#07323f" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dots)" />
-          </svg>
-        </div>
-
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h1 className="mx-auto max-w-3xl text-3xl font-sans leading-tight text-white md:text-5xl">
-            {t("why.hero.title")}
+    <main className="bg-background">
+      {/* Hero 区 */}
+      <section className="relative overflow-hidden bg-brand-navy py-10 text-white md:py-14">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(17,102,255,0.45),_transparent_60%)]" />
+        <div className="relative mx-auto max-w-4xl px-4 text-center">
+          <h1 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
+            为何选择 ICR？
           </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-sm text-slate-300">
-            {t("why.hero.description")}
+          <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-200 md:text-base">
+            在复杂、不确定的环境里，决策者需要的是“可以行动的证据”，而不仅是冗长的报告。ICR 以问题为起点，以行动为终点，从研究设计到洞察呈现，都围绕这一目标展开。
           </p>
-
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/ContactUS"
-              className="inline-block rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy"
-            >
-              {t("why.hero.cta_discuss")}
-            </Link>
-
-            <Link
-              href="/services"
-              className="inline-block rounded-md border border-brand-blue px-6 py-3 text-sm font-medium text-brand-teal hover:bg-brand-navy/10"
-            >
-              {t("why.hero.cta_explore")}
-            </Link>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <GradientCTAButton href="/ContactUS">讨论你的项目</GradientCTAButton>
+            <GradientCTAButton href="/services" variant="outline">
+              查看我们的服务
+            </GradientCTAButton>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 space-y-16">
-          <div className="grid lg:grid-cols-2 gap-4 items-center">
-            <div>
-              <div className="inline-block rounded-full bg-brand-blue/5 px-3 py-1 text-xs text-brand-navy mb-4">
-                {t("why.partnerships.eyebrow")}
-              </div>
-              <h3 className="text-3xl font-semibold text-slate-900">
-                {t("why.partnerships.title")}
-              </h3>
-              <p className="mt-4 text-slate-600">
-                {t("why.partnerships.description")}
-              </p>
-            </div>
-
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/images/about1.jpeg"
-                alt={t("why.partnerships.title")}
-                width={860}
-                height={520}
-                className="w-full h-auto object-cover"
-              />
-            </div>
+      {/* 成功要素卡片区 */}
+      <section className="bg-slate-50 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="text-2xl font-semibold text-brand-navy md:text-3xl">
+              我们如何与决策者一起创造价值
+            </h2>
+            <p className="mt-3 text-sm text-slate-600 md:text-base">
+              选择研究合作伙伴，不只是选择一种方法，更是在选择一种与决策团队协作的方式。以下几个特质，是许多客户选择 ICR 的原因。
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-4 items-center">
-            <div className="order-2 lg:order-1 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/images/about2.jpeg"
-                alt={t("why.marketing.title")}
-                width={860}
-                height={520}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <div className="inline-block rounded-full bg-brand-blue/5 px-3 py-1 text-xs text-brand-navy mb-4">
-                {t("why.marketing.eyebrow")}
-              </div>
-              <h3 className="text-3xl font-semibold text-slate-900">
-                {t("why.marketing.title")}
-              </h3>
-              <p className="mt-4 text-slate-600">
-                {t("why.marketing.description")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-10 bg-linear-to-r from-[#f7fbfa] to-[#f1f8f6]">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <div className="inline-block rounded-full bg-white/30 px-3 py-1 text-xs text-brand-navy mb-4">
-            {t("why.retail.eyebrow")}
-          </div>
-          <h3 className="mt-6 text-3xl font-sans text-slate-900 sm:text-4xl">
-            {t("why.retail.title")}
-          </h3>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-            {t("why.retail.description")}
-          </p>
-
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-left">
-            <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
-                <Users className="h-6 w-6" />
-              </div>
-              <h4 className="text-lg font-semibold text-slate-900">
-                {t("why.retail.cards.coordination.title")}
-              </h4>
-              <p className="text-sm text-slate-600">
-                {t("why.retail.cards.coordination.description")}
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
-                <Database className="h-6 w-6" />
-              </div>
-              <h4 className="text-lg font-semibold text-slate-900">
-                {t("why.retail.cards.accuracy.title")}
-              </h4>
-              <p className="text-sm text-slate-600">
-                {t("why.retail.cards.accuracy.description")}
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
-                <BarChart2 className="h-6 w-6" />
-              </div>
-              <h4 className="text-lg font-semibold text-slate-900">
-                {t("why.retail.cards.analytics.title")}
-              </h4>
-              <p className="text-sm text-slate-600">
-                {t("why.retail.cards.analytics.description")}
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start gap-4">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-md bg-brand-blue/5 text-brand-blue">
-                <FileText className="h-6 w-6" />
-              </div>
-              <h4 className="text-lg font-semibold text-slate-900">
-                {t("why.retail.cards.reporting.title")}
-              </h4>
-              <p className="text-sm text-slate-600">
-                {t("why.retail.cards.reporting.description")}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-10 bg-linear-to-r from-[#f7fbfa] to-[#f1f8f6]">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <div className="inline-block rounded-full bg-white/30 px-3 py-1 text-xs text-brand-navy mb-6">
-            {t("why.process.eyebrow")}
-          </div>
-          <h3 className="mt-6 text-3xl font-sans text-slate-900 sm:text-4xl">
-            {t("why.process.title")}
-          </h3>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-600">
-            {t("why.process.description")}
-          </p>
-
-          <div className="relative mt-16">
-            <div className="absolute left-0 right-0 top-12 h-0.5 bg-gradient-to-r from-brand-blue/40 via-brand-blue to-brand-teal/60 hidden sm:block" />
-
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-6">
-              <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
-                  <span className="text-3xl font-bold text-white">01</span>
-                </div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                  {t("why.process.steps.step1.title")}
-                </h4>
-                <p className="text-sm text-slate-600">
-                  {t("why.process.steps.step1.description")}
-                </p>
-              </div>
-
-              <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
-                  <span className="text-3xl font-bold text-white">02</span>
-                </div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                  {t("why.process.steps.step2.title")}
-                </h4>
-                <p className="text-sm text-slate-600">
-                  {t("why.process.steps.step2.description")}
-                </p>
-              </div>
-
-              <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
-                  <span className="text-3xl font-bold text-white">03</span>
-                </div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                  {t("why.process.steps.step3.title")}
-                </h4>
-                <p className="text-sm text-slate-600">
-                  {t("why.process.steps.step3.description")}
-                </p>
-              </div>
-
-              <div className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg mb-6">
-                  <span className="text-3xl font-bold text-white">04</span>
-                </div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">
-                  {t("why.process.steps.step4.title")}
-                </h4>
-                <p className="text-sm text-slate-600">
-                  {t("why.process.steps.step4.description")}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-[#071827] relative">
-        <div className="absolute inset-0 -z-10 opacity-10">
-          <svg
-            className="w-full h-full"
-            viewBox="0 0 800 400"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice"
-            aria-hidden
-          >
-            <defs>
-              <pattern
-                id="dots2"
-                width="36"
-                height="36"
-                patternUnits="userSpaceOnUse"
-              >
-                <rect width="4" height="4" fill="#062633" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dots2)" />
-          </svg>
-        </div>
-
-        <div className="mx-auto max-w-7xl px-4 text-center text-white">
-          <div className="inline-block rounded-full bg-white/5 px-3 py-1 text-xs text-slate-200 mb-4">
-            {t("why.industries.eyebrow")}
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold">
-            {t("why.industries.title")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-            {t("why.industries.description")}
-          </p>
-
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center max-w-4xl mx-auto">
-            {(t("why.industries.list", { returnObjects: true }) as string[]).map((industry: string, index: number) => (
-                <div key={index} className="rounded-xl bg-brand-blue/5 p-6 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
-                    <div className="text-sm font-medium text-slate-300">
-                        {industry.trim()}
-                    </div>
-                </div>
-            ))}
-          </div>
-
-          <div className="mt-10">
-            <Link
-              href="/ContactUS"
-              className="inline-block rounded-md bg-brand-blue px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy"
-            >
-              {t("why.industries.cta")}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <div className="inline-block rounded-full bg-brand-blue/5 px-3 py-1 text-xs text-brand-navy mb-4">
-            {t("why.success.eyebrow")}
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-            {t("why.success.title")}
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-            {t("why.success.description")}
-          </p>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {Object.keys(successCards).map((key, index) => {
-              const card = successCards[key];
-              const isHighlighted = index === 1 || index === 4;
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {SUCCESS_FACTORS.map((factor, index) => {
+              const Icon = factor.icon;
+              const highlighted = index === 1 || index === 4;
               return (
                 <div
-                  key={index}
-                  className={`rounded-lg p-6 shadow-sm ${isHighlighted ? 'bg-brand-blue/5 ring-1 ring-brand-blue/20 border border-brand-blue/30' : 'bg-white'}`}
-                  dir={language === "ar" ? "rtl" : "ltr"}
+                  key={factor.title}
+                  className={`flex h-full flex-col rounded-xl border bg-white p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md ${
+                    highlighted ? "border-brand-blue/40 bg-brand-blue/5" : "border-slate-200"
+                  }`}
                 >
-                  <div className="flex items-start gap-3">
-                    <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md ${isHighlighted ? 'bg-white text-brand-blue' : 'bg-brand-blue/5 text-brand-blue'}`}>
-                        {index === 0 && <Users className="h-5 w-5" />}
-                        {index === 1 && <Award className="h-5 w-5" />}
-                        {index === 2 && <Zap className="h-5 w-5" />}
-                        {index === 3 && <BarChart2 className="h-5 w-5" />}
-                        {index === 4 && <Wrench className="h-5 w-5" />}
-                        {index === 5 && <FileText className="h-5 w-5" />}
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-slate-900">
-                        {card.title}
-                      </h4>
-                      <p className="mt-2 text-sm text-slate-600">
-                        {card.description}
-                      </p>
-                    </div>
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue">
+                    <Icon className="h-5 w-5" />
                   </div>
+                  <h3 className="mt-3 text-sm font-semibold text-brand-navy">
+                    {factor.title}
+                  </h3>
+                  <p className="mt-2 text-xs text-slate-600 md:text-sm">
+                    {factor.description}
+                  </p>
                 </div>
-              )
+              );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* 流程/合作方法说明 */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid gap-10 md:grid-cols-[1.1fr,1fr] md:items-start">
+            <div>
+              <h2 className="text-2xl font-semibold text-brand-navy md:text-3xl">
+                一起工作的方式
+              </h2>
+              <p className="mt-3 text-sm text-slate-600 md:text-base">
+                一个好的研究项目，应该从一开始就把“谁会使用这些结果、他们如何使用”考虑进去。ICR 的项目团队会在立项阶段就邀请关键决策者参与，确保研究问题与业务语言对齐。随着项目推进，我们会在关键节点以工作坊或中期汇报的形式同步发现与假设，而不是把所有信息堆到最终报告里。
+              </p>
+              <p className="mt-2 text-sm text-slate-600 md:text-base">
+                这样做的结果，是让研究成为团队集体学习的过程，而不是外包的一次性任务，也让最终的行动建议更容易被理解和采纳。
+              </p>
+            </div>
+            <div>
+              <MethodTimeline steps={PROCESS_STEPS} tone="light" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 底部 CTA */}
+      <section className="bg-gradient-to-r from-brand-blue to-brand-teal py-12 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 text-center md:flex-row md:text-left">
+          <div>
+            <h2 className="text-2xl font-semibold md:text-3xl">
+              准备开始下一次研究或评估了吗？
+            </h2>
+            <p className="mt-2 max-w-xl text-sm md:text-base">
+              无论你处于探索想法的早期，还是已经有了明确的项目 brief，都欢迎与你的团队一起梳理问题、评估可行路径。
+            </p>
+          </div>
+          <div className="flex flex-col gap-3 md:flex-row">
+            <GradientCTAButton href="/ContactUS">预约 30 分钟交流</GradientCTAButton>
+            <Link
+              href="/services"
+              className="text-sm font-semibold text-white/90 hover:text-white"
+            >
+              了解我们在项目中的具体角色 →
+            </Link>
           </div>
         </div>
       </section>

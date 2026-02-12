@@ -1,32 +1,19 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
-import Navbar from "./header";
+import type { ReactNode } from "react";
+import Header from "./header";
 import Footer from "./footer";
-import { LanguageProvider, useLanguage } from "../contexts/LanguageContext";
-import { ContentWrapper } from "./ContentWrapper";
 
-function LayoutContent({ children }: { children: ReactNode }) {
-  const { language } = useLanguage();
-
-  useEffect(() => {
-    // Update html lang attribute
-    document.documentElement.lang = language;
-  }, [language]);
-
-  return (
-    <>
-      <Navbar />
-      <ContentWrapper>{children}</ContentWrapper>
-      <Footer />
-    </>
-  );
-}
-
+/**
+ * 新的客户端布局：不再依赖旧的 LanguageContext / i18n 方案，
+ * 仅负责渲染站点统一的 Header + Footer 以及页面内容。
+ */
 export default function ClientLayout({ children }: { children: ReactNode }) {
   return (
-    <LanguageProvider>
-      <LayoutContent>{children}</LayoutContent>
-    </LanguageProvider>
+    <>
+      <Header />
+      <main className="min-h-[calc(100vh-4rem)] bg-background">{children}</main>
+      <Footer />
+    </>
   );
 }
