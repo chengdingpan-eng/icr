@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ICR - Insight Consultancy & Research",
   description: "Independent research and advisory firm",
+  icons: {
+    icon: [{ url: "/images/icon.png" }, { url: "/icon.png" }],
+    shortcut: "/images/icon.png",
+    apple: "/images/icon.png",
+  },
 };
 
 export default function RootLayout({
