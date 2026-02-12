@@ -9,143 +9,139 @@ export default function ServicesPage() {
 
   const expertiseItems = [
     {
-      title: t("expertise.government.title"),
+      title: t("expertise.sections.governmental.title"),
       img: "/images/expertise/expersite_2.jpeg",
       content: (
         <>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.government.desc1")}
+            {t("expertise.sections.governmental.description1")}
           </p>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.government.desc2")}
+            {t("expertise.sections.governmental.description2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
-            {t("expertise.government.includes")}
+            {t("expertise.sections.governmental.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            <li>{t("expertise.government.item1")}</li>
-            <li>{t("expertise.government.item2")}</li>
-            <li>{t("expertise.government.item3")}</li>
-            <li>{t("expertise.government.item4")}</li>
+            {t("expertise.sections.governmental.includes_list").split(',').map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+            ))}
           </ul>
         </>
       ),
     },
     {
-      title: t("expertise.corporate.title"),
+      title: t("expertise.sections.corporate.title"),
       img: "/images/expertise/expersite_3.jpeg",
       content: (
         <>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.corporate.desc1")}
+            {t("expertise.sections.corporate.description1")}
           </p>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.corporate.desc2")}
+            {t("expertise.sections.corporate.description2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
-            {t("expertise.corporate.includes")}
+            {t("expertise.sections.corporate.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            <li>{t("expertise.corporate.item1")}</li>
-            <li>{t("expertise.corporate.item2")}</li>
-            <li>{t("expertise.corporate.item3")}</li>
-            <li>{t("expertise.corporate.item4")}</li>
+             {t("expertise.sections.corporate.includes_list").split(',').map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+            ))}
           </ul>
         </>
       ),
     },
     {
-      title: t("expertise.methodological.title"),
+      title: t("expertise.sections.methodological.title"),
       img: "/images/expertise/expersite_4.jpeg",
       content: (
         <>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.methodological.desc1")}
+            {t("expertise.sections.methodological.description1")}
           </p>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.methodological.desc2")}
+            {t("expertise.sections.methodological.description2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
-            {t("expertise.methodological.includes")}
+            {t("expertise.sections.methodological.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            <li>{t("expertise.methodological.item1")}</li>
-            <li>{t("expertise.methodological.item2")}</li>
-            <li>{t("expertise.methodological.item3")}</li>
-            <li>{t("expertise.methodological.item4")}</li>
+             {t("expertise.sections.methodological.includes_list").split(',').map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+            ))}
           </ul>
         </>
       ),
     },
     {
-      title: t("expertise.ai.title"),
+      title: t("expertise.sections.ai.title"),
       img: "/images/expertise/expersite_1.jpeg",
       content: (
         <>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.ai.desc1")}
+            {t("expertise.sections.ai.description1")}
           </p>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.ai.desc2")}
+            {t("expertise.sections.ai.description2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
-            {t("expertise.ai.includes")}
+            {t("expertise.sections.ai.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            <li>{t("expertise.ai.item1")}</li>
-            <li>{t("expertise.ai.item2")}</li>
-            <li>{t("expertise.ai.item3")}</li>
-            <li>{t("expertise.ai.item4")}</li>
+             {t("expertise.sections.ai.includes_list").split(',').map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+            ))}
           </ul>
         </>
       ),
     },
     {
-      title: t("expertise.decision.title"),
+      title: t("expertise.sections.decision.title"),
       img: "/images/expertise/expersite_5.jpeg",
       content: (
         <>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.decision.desc1")}
+            {t("expertise.sections.decision.description1")}
           </p>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.decision.desc2")}
+            {t("expertise.sections.decision.description2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
-            {t("expertise.decision.includes")}
+            {t("expertise.sections.decision.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            <li>{t("expertise.decision.item1")}</li>
-            <li>{t("expertise.decision.item2")}</li>
-            <li>{t("expertise.decision.item3")}</li>
+             {t("expertise.sections.decision.includes_list").split(',').map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+            ))}
           </ul>
         </>
       ),
     },
     {
-      title: t("expertise.closing.title"),
+      title: t("expertise.sections.closing.title"),
       img: "/images/expertise/expersite_6.jpeg",
       content: (
         <>
           <p className="mb-4 text-sm text-slate-600">
-            {t("expertise.closing.desc1")}
+            {t("expertise.sections.closing.description1")}
           </p>
           <p className="text-sm text-slate-600">
-            {t("expertise.closing.desc2")}
+            {t("expertise.sections.closing.description2")}
           </p>
 
           <h5 className="mt-4 text-sm font-semibold text-slate-900">
-            {t("expertise.section.whatitincludes")}
+            {t("expertise.sections.closing.includes_title")}
           </h5>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-600">
-            <li>{t("expertise.closing.item1")}</li>
-            <li>{t("expertise.closing.item2")}</li>
-            <li>{t("expertise.closing.item3")}</li>
+             {t("expertise.sections.closing.includes_list").split(',').map((item: string, index: number) => (
+                <li key={index}>{item}</li>
+            ))}
           </ul>
         </>
       ),
@@ -201,7 +197,7 @@ export default function ServicesPage() {
           <div className="mt-8">
             <Link href="/ContactUS">
               <Button className="rounded-md bg-gradient-to-r from-brand-blue to-brand-teal px-6 py-3 text-sm font-semibold text-white shadow-sm hover:shadow-md hover:brightness-105">
-                {t("expertise.cta.discuss")} »
+                {t("expertise.hero.cta")}
               </Button>
             </Link>
           </div>
@@ -292,13 +288,13 @@ export default function ServicesPage() {
 
         <div className="relative mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans">
-            {t("expertise.final.title")}
+            {t("expertise.finalCta.title")}
           </h2>
 
           <div className="mt-8">
             <Link href="/services">
               <Button className="bg-gradient-to-r from-brand-blue to-brand-teal px-6 py-3 text-sm font-semibold text-white shadow-sm hover:shadow-md hover:brightness-105">
-                {t("expertise.final.cta")} »
+                {t("expertise.finalCta.cta")}
               </Button>
             </Link>
           </div>

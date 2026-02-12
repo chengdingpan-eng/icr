@@ -22,13 +22,13 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "nav.home", href: "/" },
-    { label: "nav.services", href: "/services" },
-    { label: "nav.expertise", href: "/expertise" },
-    { label: "nav.whyicr", href: "/why-icr" },
-    { label: "nav.about", href: "/about" },
-    { label: "nav.careers", href: "/careers" },
-    { label: "nav.contact", href: "/ContactUS" },
+    { label: "home.nav.home", href: "/" },
+    { label: "home.nav.services", href: "/services" },
+    { label: "home.nav.expertise", href: "/expertise" },
+    { label: "home.nav.whyIcr", href: "/why-icr" },
+    { label: "home.nav.about", href: "/about" },
+    { label: "home.nav.careers", href: "/careers" },
+    { label: "home.nav.contact", href: "/ContactUS" },
   ];
 
   const languages = [
@@ -119,7 +119,7 @@ export default function Navbar() {
                 size="sm"
                 className="bg-gradient-to-r from-brand-blue to-brand-teal text-white shadow-sm hover:shadow-md hover:brightness-105 px-4 py-2"
               >
-                {t("nav.contact")}
+                {t("home.nav.contact")}
               </Button>
             </Link>
           </div>

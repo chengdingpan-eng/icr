@@ -11,59 +11,55 @@ export default function ServicesPage() {
   const primaryServices = [
     {
       id: "research",
-      title: "Research & Evidence",
-      description:
-        "定量与定性研究结合，支持公共政策、品牌与客户体验等关键议题。",
+      title: t("services.cards.quantitative.title"),
+      description:t("services.cards.quantitative.description"),
       href: "/services/research",
     },
     {
       id: "analytics",
-      title: "Analytics & Measurement",
-      description:
-        "构建指标体系与分析模型，监测项目成效与行为变化。",
+      title: t("services.cards.qualitative.title"),
+      description:t("services.cards.qualitative.description"),
       href: "/services/analytics",
     },
     {
       id: "strategy",
-      title: "Strategy & Advisory",
-      description:
-        "围绕治理结构与决策流程，将证据转化为清晰的战略路径。",
+      title: t("services.cards.tracking.title"),
+      description:t("services.cards.tracking.description"),
       href: "/services/strategy",
     },
     {
       id: "training",
-      title: "Training & Capability",
-      description:
-        "通过工作坊与培训，提升团队对数据与洞察的理解与使用能力。",
+      title: t("services.cards.retail.title"),
+      description: t("services.cards.retail.description"),
       href: "/services/training",
     },
   ];
 
   const services = [
     {
-      title: t("services.quantitative.title"),
-      desc: t("services.quantitative.desc"),
+      title: t("services.cards.quantitative.title"),
+      desc: t("services.cards.quantitative.description"),
     },
     {
-      title: t("services.qualitative.title"),
-      desc: t("services.qualitative.desc"),
+      title: t("services.cards.qualitative.title"),
+      desc: t("services.cards.qualitative.description"),
       highlighted: true,
     },
     {
-      title: t("services.tracking.title"),
-      desc: t("services.tracking.desc"),
+      title: t("services.cards.tracking.title"),
+      desc: t("services.cards.tracking.description"),
     },
     {
-      title: t("services.retail.title"),
-      desc: t("services.retail.desc"),
+      title: t("services.cards.retail.title"),
+      desc: t("services.cards.retail.description"),
     },
     {
-      title: t("services.market.title"),
-      desc: t("services.market.desc"),
+      title: t("services.cards.market.title"),
+      desc: t("services.cards.market.description"),
     },
     {
-      title: t("services.strategic.title"),
-      desc: t("services.strategic.desc"),
+      title: t("services.cards.consulting.title"),
+      desc: t("services.cards.consulting.description"),
     },
   ];
 
@@ -99,12 +95,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h1 className="mx-auto max-w-3xl text-3xl font-sans leading-tight text-white md:text-5xl">
             {t("services.hero.title")}
-            <br />
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-brand-blue to-brand-teal">
-              {t("services.hero.subtitle")}
-            </span>
           </h1>
-
           <p className="mx-auto mt-4 max-w-2xl text-sm font-semibold leading-relaxed text-slate-100 md:text-base">
             {t("services.hero.description")}
           </p>
@@ -115,8 +106,8 @@ export default function ServicesPage() {
       <CardGrid
         className="bg-white"
         eyebrow="Service overview"
-        title="我们的核心服务版块"
-        subtitle="从研究到分析、战略与能力建设，形成完整的一体化服务体系。"
+        title={t("services.why.title")}
+        subtitle={t("services.why.description")}
         items={primaryServices}
       />
 
@@ -209,10 +200,10 @@ export default function ServicesPage() {
 
                       <div>
                         <h4 className="text-lg font-semibold text-white">
-                          {t(`services.process.step${step}`)}
+                          {t(`services.process.steps.step${step}.title`)}
                         </h4>
                         <p className="mt-2 text-sm text-slate-200">
-                          {t(`services.process.step${step}.desc`)}
+                          {t(`services.process.steps.step${step}.description`)}
                         </p>
                       </div>
                     </div>

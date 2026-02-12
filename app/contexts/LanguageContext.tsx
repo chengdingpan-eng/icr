@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { translations } from "../translations/translations";
+import { translations } from "../translations";
 import { detectLanguageFromGeolocation } from "../utils/detectLanguage";
 
 type Language = "en" | "zh" | "ar";
@@ -31,7 +31,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
     async function initializeLanguage() {
       try {
-        // Check if user has manually set a language before
         const savedLanguage = localStorage.getItem(
           "language"
         ) as Language | null;
@@ -39,13 +38,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
           localStorage.getItem("languageManuallySet") === "true";
 
         if (savedLanguage && manuallySet) {
-          // User has manually chosen a language, respect that choice
           setLanguage(savedLanguage);
           setIsDetecting(false);
           return;
         }
 
-        // Check if we've already detected location before
         const cachedLanguage = localStorage.getItem(
           "detectedLanguage"
         ) as Language | null;
@@ -53,16 +50,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
           localStorage.getItem("locationPermissionGranted") === "true";
 
         if (cachedLanguage && locationGranted) {
-          // Use cached detection result
           setLanguage(cachedLanguage);
           localStorage.setItem("language", cachedLanguage);
           setIsDetecting(false);
           return;
         }
 
-        // Detect language from user's geolocation (will ask permission)
         const detectedLang = await detectLanguageFromGeolocation();
-        console.log("Language detected from geolocation:", detectedLang);
         setLanguage(detectedLang);
         localStorage.setItem("language", detectedLang);
         localStorage.setItem("detectedLanguage", detectedLang);
@@ -81,17 +75,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguage(lang);
     if (typeof window !== "undefined") {
       localStorage.setItem("language", lang);
-      // Mark that user manually changed the language
       localStorage.setItem("languageManuallySet", "true");
     }
   };
 
   const t = (key: string): string => {
-    const languageTranslations = translations[language] as Record<
-      string,
-      string
-    >;
-    return languageTranslations[key] || key;
+    const langTranslations = translations[language] || translations.en;
+    const result = key.split('.').reduce((obj, k) => obj && obj[k], langTranslations);
+    return result || key;
   };
 
   return (

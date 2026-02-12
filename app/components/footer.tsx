@@ -26,7 +26,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="mt-4 max-w-md text-sm text-slate-200">
-              {t("footer.tagline")}
+              {t("home.footer.tagline")}
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
                 isArabic ? "text-right" : "text-left"
               }`}
             >
-              {t("footer.quicklinks")}
+              {t("home.footer.quickLinks")}
             </h4>
             <ul
               className={`mt-4 grid grid-cols-2 gap-2 text-sm ${
@@ -49,7 +49,7 @@ export default function Footer() {
                   href="/services"
                   className="hover:text-brand-teal transition-colors"
                 >
-                  {t("nav.services")}
+                  {t("home.nav.services")}
                 </Link>
               </li>
               <li>
@@ -57,7 +57,7 @@ export default function Footer() {
                   href="/expertise"
                   className="hover:text-brand-teal transition-colors"
                 >
-                  {t("nav.expertise")}
+                  {t("home.nav.expertise")}
                 </Link>
               </li>
               <li>
@@ -65,7 +65,7 @@ export default function Footer() {
                   href="/why-icr"
                   className="hover:text-brand-teal transition-colors"
                 >
-                  {t("nav.whyicr")}
+                  {t("home.nav.whyIcr")}
                 </Link>
               </li>
               <li>
@@ -73,7 +73,7 @@ export default function Footer() {
                   href="/about"
                   className="hover:text-brand-teal transition-colors"
                 >
-                  {t("nav.about")}
+                  {t("home.nav.about")}
                 </Link>
               </li>
               <li>
@@ -81,7 +81,7 @@ export default function Footer() {
                   href="/careers"
                   className="hover:text-brand-teal transition-colors"
                 >
-                  {t("nav.careers")}
+                  {t("home.nav.careers")}
                 </Link>
               </li>
               <li>
@@ -89,7 +89,7 @@ export default function Footer() {
                   href="/ContactUS"
                   className="hover:text-brand-teal transition-colors"
                 >
-                  {t("nav.contact")}
+                  {t("home.nav.contact")}
                 </Link>
               </li>
             </ul>
@@ -102,7 +102,7 @@ export default function Footer() {
                 isArabic ? "text-right" : "text-left"
               }`}
             >
-              {t("nav.contact")}
+              {t("home.nav.contact")}
             </h4>
             <div
               className={`mt-4 text-sm ${
@@ -138,13 +138,13 @@ export default function Footer() {
               href="/privacy"
               className="hover:text-brand-teal transition-colors"
             >
-              {t("footer.privacy")}
+              {t("home.footer.privacy")}
             </Link>
             <Link
               href="/terms"
               className="hover:text-brand-teal transition-colors"
             >
-              {t("footer.terms")}
+              {t("home.footer.terms")}
             </Link>
           </div>
         </div>

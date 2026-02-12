@@ -16,30 +16,26 @@ export default function HomePage() {
   const primaryServices = [
     {
       id: "research",
-      title: "Research & Evidence",
-      description:
-        "量化与质化研究结合，帮助你听见真实声音，从公民态度到用户体验。",
+      title: t("home.why.cards.evidence.title"),
+      description: t("home.why.cards.evidence.description"),
       href: "/services/research",
     },
     {
       id: "analytics",
-      title: "Analytics & Measurement",
-      description:
-        "从数据仓库到仪表盘，构建指标体系与模型，量化政策与业务成效。",
+      title: t("home.why.cards.contextual.title"),
+      description: t("home.why.cards.contextual.description"),
       href: "/services/analytics",
     },
     {
       id: "strategy",
-      title: "Strategy & Advisory",
-      description:
-        "将证据转化为清晰的战略路径，为高层决策会议与治理结构提供支持。",
+      title: t("home.why.cards.strategic.title"),
+      description: t("home.why.cards.strategic.description"),
       href: "/services/strategy",
     },
     {
       id: "training",
-      title: "Training & Capability",
-      description:
-        "工作坊与能力建设项目，帮助团队掌握基于证据决策的语言与方法。",
+      title: t("home.why.cards.actionable.title"),
+      description: t("home.why.cards.actionable.description"),
       href: "/services/training",
     },
   ];
@@ -47,30 +43,27 @@ export default function HomePage() {
   const insightPreviews = [
     {
       id: "citizen-confidence",
-      category: "Public sector insight",
+      category: t("home.impact.interviews.title"),
       title: "GCC citizen confidence tracker 2025",
-      description:
-        "示例：跨城市长期追踪公民对服务质量与生活成本的信心指数。",
+      description: "示例：跨城市长期追踪公民对服务质量与生活成本的信心指数。",
       date: "2025-01-18",
       readingTime: "8 min read",
       imageSrc: "/images/carousel2.jpeg",
     },
     {
       id: "retail-panel",
-      category: "Retail & shopper",
+      category: t("home.impact.projects.title"),
       title: "Modern trade retail panel in KSA",
-      description:
-        "示例：结合门店审计与消费者调研，衡量促销与货架执行效果。",
+      description: "示例：结合门店审计与消费者调研，衡量促销与货架执行效果。",
       date: "2024-11-03",
       readingTime: "6 min read",
       imageSrc: "/images/carousel3.jpeg",
     },
     {
       id: "analytics-lab",
-      category: "Analytics & data",
+      category: t("home.impact.experience.title"),
       title: "Building an insight lab for public policy",
-      description:
-        "示例：如何在政府部门内部搭建轻量级分析实验室，提升证据使用率。",
+      description: "示例：如何在政府部门内部搭建轻量级分析实验室，提升证据使用率。",
       date: "2024-07-22",
       readingTime: "9 min read",
       imageSrc: "/images/carousel4.jpeg",
@@ -93,17 +86,12 @@ export default function HomePage() {
 
               <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-brand-navy">
                 {t("home.hero.title")}
-                <br />
-                <span className="bg-clip-text text-transparent bg-linear-to-r from-brand-blue to-brand-teal">
-                  {t("home.hero.subtitle")}
-                </span>
               </h1>
-
               <p className="mt-4 max-w-xl text-sm md:text-base text-slate-600">
-                {t("home.hero.description")}
+                {t("home.hero.subtitle")}
               </p>
               <p className="mt-2 max-w-xl text-sm md:text-base text-slate-600">
-                {t("home.hero.description2")}
+                {t("home.hero.description")}
               </p>
 
               {/* CTA 行：主按钮 + 次按钮 */}
@@ -122,27 +110,23 @@ export default function HomePage() {
                     variant="outline"
                     className="border-brand-blue text-brand-navy hover:bg-brand-blue/5"
                   >
-                    {t("home.cta.services")}
+                    {t("home.cta.explore")}
                   </Button>
                 </Link>
               </div>
 
               {/* 三个关键特性小卡片 */}
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                {[
-                  "home.feature.research",
-                  "home.feature.insight",
-                  "home.feature.clarity",
-                ].map((key) => (
+                {["research", "insight", "clarity"].map((key) => (
                   <div
                     key={key}
                     className="rounded-xl border border-slate-200 bg-white/80 p-4 shadow-sm"
                   >
                     <div className="text-xs font-semibold text-brand-navy">
-                      {t(key)}
+                      {t(`home.features.${key}.title`)}
                     </div>
                     <div className="mt-2 text-xs text-slate-600">
-                      {t(`${key}.desc`)}
+                      {t(`home.features.${key}.description`)}
                     </div>
                   </div>
                 ))}
@@ -179,9 +163,9 @@ export default function HomePage() {
       {/* 主要服务入口：模块化卡片网格 */}
       <CardGrid
         className="bg-brand-soft-bg"
-        eyebrow="核心服务版块"
-        title="从研究到战略落地的一站式能力"
-        subtitle="围绕公共部门与企业的关键问题，提供从证据生成、分析到决策支持与能力建设的完整链路。"
+        eyebrow={t("home.why.whatWeDo")}
+        title={t("home.why.title")}
+        subtitle={t("home.why.description")}
         items={primaryServices}
       />
 
@@ -221,14 +205,14 @@ export default function HomePage() {
                 className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm border border-slate-200"
               >
                 <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue text-xs font-semibold">
-                  {t(`home.expertise.${key}`)[0]}
+                  {t(`home.expertise.${key}.title`)[0]}
                 </div>
                 <div className={isArabic ? "text-right" : "text-left"}>
                   <div className="text-sm font-semibold text-brand-navy">
-                    {t(`home.expertise.${key}`)}
+                    {t(`home.expertise.${key}.title`)}
                   </div>
                   <p className="mt-1 text-xs text-slate-600">
-                    {t(`home.expertise.${key}.desc`)}
+                    {t(`home.expertise.${key}.description`)}
                   </p>
                 </div>
               </div>
@@ -250,14 +234,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              "evidence",
-              "contextual",
-              "monitoring",
-              "practical",
-              "strategic",
-              "actionable",
-            ].map((key, index) => (
+            {Object.keys(t("home.why.cards")).map((key, index) => (
               <div
                 key={key}
                 className={`rounded-2xl border bg-white p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md ${
@@ -270,22 +247,10 @@ export default function HomePage() {
                   0{index + 1}
                 </div>
                 <h3 className="mt-2 text-sm font-semibold text-brand-navy">
-                  {t(`home.why.${key}`)}
+                  {t(`home.why.cards.${key}.title`)}
                 </h3>
                 <p className="mt-2 text-xs text-slate-600">
-                  {/* 这里保持英文描述，后续如需可接入 i18n */}
-                  {index === 0 &&
-                    "We ensure every decision is grounded in robust quantitative data."}
-                  {index === 1 &&
-                    "Qualitative depth that explains the human stories behind the numbers."}
-                  {index === 2 &&
-                    "Ongoing tracking so you can see change as it happens, not months later."}
-                  {index === 3 &&
-                    "Field-level observations translated into practical guidance for teams."}
-                  {index === 4 &&
-                    "Advice anchored in your strategic agenda, not generic recommendations."}
-                  {index === 5 &&
-                    "Clear outputs that senior decision-makers can immediately act on."}
+                  {t(`home.why.cards.${key}.description`)}
                 </p>
               </div>
             ))}
@@ -300,54 +265,31 @@ export default function HomePage() {
 
         <div className="relative mx-auto max-w-7xl px-4 text-center">
           <p className="inline-flex rounded-full bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.16em] text-slate-200">
-            {t("home.section.impact")}
+            {t("home.impact.label")}
           </p>
 
           <h2 className="mt-4 text-3xl md:text-4xl font-semibold">
-            {t("home.numbers.title")}
+            {t("home.impact.title")}
           </h2>
 
           <p className="mt-3 mx-auto max-w-2xl text-sm md:text-base text-slate-200">
-            Research and advisory expertise since 2009 — the scale and reach of our
-            work speaks for itself.
+            {t("home.impact.description")}
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center px-4 text-center">
-              <div className="text-4xl md:text-5xl font-semibold tracking-tight">
-                100,000+
+            {["interviews", "projects", "experience"].map((key) => (
+              <div key={key} className="flex flex-col items-center px-4 text-center">
+                <div className="text-4xl md:text-5xl font-semibold tracking-tight">
+                  {t(`home.impact.${key}.stat`)}
+                </div>
+                <div className="mt-3 text-sm font-medium">
+                  {t(`home.impact.${key}.title`)}
+                </div>
+                <p className="mt-2 max-w-xs text-xs text-slate-200">
+                  {t(`home.impact.${key}.description`)}
+                </p>
               </div>
-              <div className="mt-3 text-sm font-medium">
-                {t("home.numbers.interviews")}
-              </div>
-              <p className="mt-2 max-w-xs text-xs text-slate-200">
-                Face-to-face, telephone, and digital data collection — and counting.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center px-4 text-center">
-              <div className="text-4xl md:text-5xl font-semibold tracking-tight">
-                100+
-              </div>
-              <div className="mt-3 text-sm font-medium">
-                {t("home.numbers.projects")}
-              </div>
-              <p className="mt-2 max-w-xs text-xs text-slate-200">
-                Completed across multiple sectors and industries.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center px-4 text-center">
-              <div className="text-4xl md:text-5xl font-semibold tracking-tight">
-                55+
-              </div>
-              <div className="mt-3 text-sm font-medium">
-                {t("home.numbers.experience")}
-              </div>
-              <p className="mt-2 max-w-xs text-xs text-slate-200">
-                Across research, analysis, and strategic advisory roles.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -358,19 +300,19 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-xl">
               <h2 className="text-2xl md:text-3xl font-semibold text-brand-navy">
-                最新洞察与研究示例
+                {t("home.insights.title")}
               </h2>
               <p className="mt-2 text-sm md:text-base text-slate-600">
-                以下为静态示例卡片，用于展示未来洞察内容的排版与信息层级。
+                {t("home.insights.description")}
               </p>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <span className="text-slate-500">查看更多分析与报告</span>
+              <span className="text-slate-500">{t("home.insights.cta_text")}</span>
               <Link
                 href="/insights"
                 className="text-brand-blue hover:text-brand-teal font-semibold"
               >
-                前往洞察中心 →
+                {t("home.insights.cta_link")} →
               </Link>
             </div>
           </div>
@@ -399,31 +341,16 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-sm font-semibold text-brand-navy">
-                {t("home.trust.delivery")}
-              </h3>
-              <p className="mt-2 text-xs text-slate-600">
-                Robust research design, quality assurance, and defensible findings.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-sm font-semibold text-brand-navy">
-                {t("home.trust.engagement")}
-              </h3>
-              <p className="mt-2 text-xs text-slate-600">
-                Engagement models built around governance structures and decision
-                forums.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-sm font-semibold text-brand-navy">
-                {t("home.trust.team")}
-              </h3>
-              <p className="mt-2 text-xs text-slate-600">
-                Public, corporate, and international experience in one senior team.
-              </p>
-            </div>
+             {["delivery", "engagements", "team"].map((key) => (
+                <div key={key} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                    <h3 className="text-sm font-semibold text-brand-navy">
+                        {t(`home.trust.${key}.title`)}
+                    </h3>
+                    <p className="mt-2 text-xs text-slate-600">
+                        {t(`home.trust.${key}.description`)}
+                    </p>
+                </div>
+            ))}
           </div>
         </div>
       </section>
@@ -437,16 +364,16 @@ export default function HomePage() {
             }
           >
             <h2 className="text-2xl md:text-3xl font-semibold">
-              {t("home.final.title")}
+              {t("home.finalCta.title")}
             </h2>
             <p className="mt-2 mx-auto max-w-xl text-sm md:text-base text-white/90 md:mx-0">
-              {t("home.final.description")}
+              {t("home.finalCta.description")}
             </p>
           </div>
           <div className="flex justify-center md:justify-end">
             <Link href="/ContactUS">
               <Button className="bg-white text-brand-navy hover:bg-slate-100">
-                {t("home.cta.discuss")}
+                {t("home.finalCta.cta")}
               </Button>
             </Link>
           </div>
