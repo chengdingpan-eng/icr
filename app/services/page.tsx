@@ -3,9 +3,41 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
+import { CardGrid } from "../components/CardGrid";
 
 export default function ServicesPage() {
   const { t } = useLanguage();
+
+  const primaryServices = [
+    {
+      id: "research",
+      title: "Research & Evidence",
+      description:
+        "定量与定性研究结合，支持公共政策、品牌与客户体验等关键议题。",
+      href: "/services/research",
+    },
+    {
+      id: "analytics",
+      title: "Analytics & Measurement",
+      description:
+        "构建指标体系与分析模型，监测项目成效与行为变化。",
+      href: "/services/analytics",
+    },
+    {
+      id: "strategy",
+      title: "Strategy & Advisory",
+      description:
+        "围绕治理结构与决策流程，将证据转化为清晰的战略路径。",
+      href: "/services/strategy",
+    },
+    {
+      id: "training",
+      title: "Training & Capability",
+      description:
+        "通过工作坊与培训，提升团队对数据与洞察的理解与使用能力。",
+      href: "/services/training",
+    },
+  ];
 
   const services = [
     {
@@ -38,7 +70,7 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero：深海军蓝背景 + 简洁标题 */}
-      <section className="w-full relative overflow-hidden bg-brand-navy text-white py-10 md:py-14">
+      <section className="relative w-full overflow-hidden bg-brand-navy py-10 text-white md:py-14">
         {/* 背景装饰线条 + 蓝绿蒙版 */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
@@ -61,7 +93,7 @@ export default function ServicesPage() {
               fill="none"
             />
           </svg>
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/35 via-transparent to-brand-teal/35 pointer-events-none" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-blue/35 via-transparent to-brand-teal/35" />
         </div>
 
         <div className="mx-auto max-w-4xl px-4 text-center">
@@ -79,7 +111,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 服务卡片网格 */}
+      {/* 模块化主服务卡片网格：Research / Analytics / Strategy / Training */}
+      <CardGrid
+        className="bg-white"
+        eyebrow="Service overview"
+        title="我们的核心服务版块"
+        subtitle="从研究到分析、战略与能力建设，形成完整的一体化服务体系。"
+        items={primaryServices}
+      />
+
+      {/* 传统服务能力块：沿用原有结构与文案 */}
       <section className="w-full bg-brand-soft-bg">
         <div className="mx-auto max-w-7xl px-4 py-10">
           <div className="mx-auto max-w-3xl text-center">
@@ -121,9 +162,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-brand-navy">
-                      {s.title}
-                    </h4>
+                    <h4 className="text-sm font-semibold text-brand-navy">{s.title}</h4>
                     <p className="mt-2 text-sm text-slate-600">{s.desc}</p>
                   </div>
                 </div>
@@ -137,7 +176,7 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-7xl px-4">
             <div className="grid items-start gap-12 md:grid-cols-2">
               <div className="max-w-md">
-                <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
+                <h3 className="mb-4 text-3xl font-extrabold text-white md:text-4xl">
                   {t("services.process.title")}
                 </h3>
 
@@ -146,16 +185,16 @@ export default function ServicesPage() {
                 </p>
 
                 <div className="mt-6 flex items-center space-x-2 md:space-x-3">
-                  <div className="h-1 w-12 md:w-20 rounded bg-brand-teal"></div>
-                  <div className="h-1 w-16 md:w-24 rounded bg-slate-600"></div>
-                  <div className="h-1 w-16 md:w-24 rounded bg-slate-600 "></div>
-                  <div className="hidden h-1 w-16 rounded bg-slate-600 md:block md:w-24"></div>
+                  <div className="h-1 w-12 rounded bg-brand-teal md:w-20" />
+                  <div className="h-1 w-16 rounded bg-slate-600 md:w-24" />
+                  <div className="h-1 w-16 rounded bg-slate-600 md:w-24" />
+                  <div className="hidden h-1 w-16 rounded bg-slate-600 md:block md:w-24" />
                 </div>
               </div>
 
               <div className="relative">
                 <div
-                  className="absolute left-11 top-10 bottom-0 w-0.75 bg-brand-blue/35 pointer-events-none"
+                  className="pointer-events-none absolute left-11 top-10 bottom-0 w-0.75 bg-brand-blue/35"
                   aria-hidden
                 />
 
@@ -163,7 +202,7 @@ export default function ServicesPage() {
                   {[1, 2, 3, 4, 5].map((step) => (
                     <div key={step} className="flex items-start gap-6">
                       <div className="relative z-10 flex flex-col items-center">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue text-white text-sm font-semibold">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue text-sm font-semibold text-white">
                           {step}
                         </div>
                       </div>
@@ -185,9 +224,9 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA 区：讨论需求 / 请求方案 */}
-        <div className="flex flex-col items-center gap-4 bg-gradient-to-br from-brand-navy to-brand-soft-navy py-6 px-4 sm:flex-row sm:justify-center">
+        <div className="flex flex-col items-center gap-4 bg-gradient-to-br from-brand-navy to-brand-soft-navy px-4 py-6 sm:flex-row sm:justify-center">
           <Link href="/ContactUS" className="w-full sm:w-auto">
-            <Button className="w-full sm:w-auto px-6 py-4 text-sm font-semibold bg-gradient-to-r from-brand-blue to-brand-teal text-white shadow-sm hover:shadow-md hover:brightness-105">
+            <Button className="w-full px-6 py-4 text-sm font-semibold text-white shadow-sm bg-gradient-to-r from-brand-blue to-brand-teal hover:shadow-md hover:brightness-105 sm:w-auto">
               {t("services.cta.discuss")}
             </Button>
           </Link>

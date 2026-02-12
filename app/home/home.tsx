@@ -1,17 +1,85 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Carousel from "./Carousel";
 import { useLanguage } from "../contexts/LanguageContext";
+import { CardGrid } from "../components/CardGrid";
+import { InsightCard } from "../components/InsightCard";
+import { PartnersBand } from "../components/PartnersBand";
 
 export default function HomePage() {
   const { t, language } = useLanguage();
   const isArabic = language === "ar";
 
+  const primaryServices = [
+    {
+      id: "research",
+      title: "Research & Evidence",
+      description:
+        "量化与质化研究结合，帮助你听见真实声音，从公民态度到用户体验。",
+      href: "/services/research",
+    },
+    {
+      id: "analytics",
+      title: "Analytics & Measurement",
+      description:
+        "从数据仓库到仪表盘，构建指标体系与模型，量化政策与业务成效。",
+      href: "/services/analytics",
+    },
+    {
+      id: "strategy",
+      title: "Strategy & Advisory",
+      description:
+        "将证据转化为清晰的战略路径，为高层决策会议与治理结构提供支持。",
+      href: "/services/strategy",
+    },
+    {
+      id: "training",
+      title: "Training & Capability",
+      description:
+        "工作坊与能力建设项目，帮助团队掌握基于证据决策的语言与方法。",
+      href: "/services/training",
+    },
+  ];
+
+  const insightPreviews = [
+    {
+      id: "citizen-confidence",
+      category: "Public sector insight",
+      title: "GCC citizen confidence tracker 2025",
+      description:
+        "示例：跨城市长期追踪公民对服务质量与生活成本的信心指数。",
+      date: "2025-01-18",
+      readingTime: "8 min read",
+      imageSrc: "/images/carousel2.jpeg",
+    },
+    {
+      id: "retail-panel",
+      category: "Retail & shopper",
+      title: "Modern trade retail panel in KSA",
+      description:
+        "示例：结合门店审计与消费者调研，衡量促销与货架执行效果。",
+      date: "2024-11-03",
+      readingTime: "6 min read",
+      imageSrc: "/images/carousel3.jpeg",
+    },
+    {
+      id: "analytics-lab",
+      category: "Analytics & data",
+      title: "Building an insight lab for public policy",
+      description:
+        "示例：如何在政府部门内部搭建轻量级分析实验室，提升证据使用率。",
+      date: "2024-07-22",
+      readingTime: "9 min read",
+      imageSrc: "/images/carousel4.jpeg",
+    },
+  ];
+
   return (
     <main className="bg-background">
-      {/* Hero 区：大标题 + 品牌叙事 + CTA */}
+      {/* Hero 区：编辑型大图 + 品牌标语 */}
       <section className="relative overflow-hidden bg-white">
         <div className="pointer-events-none absolute inset-x-0 -top-32 h-72 bg-gradient-to-br from-brand-blue/10 via-brand-teal/5 to-transparent" />
 
@@ -61,62 +129,45 @@ export default function HomePage() {
 
               {/* 三个关键特性小卡片 */}
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                {["home.feature.research", "home.feature.insight", "home.feature.clarity"].map(
-                  (key) => (
-                    <div
-                      key={key}
-                      className="rounded-xl border border-slate-200 bg-white/80 p-4 shadow-sm"
-                    >
-                      <div className="text-xs font-semibold text-brand-navy">
-                        {t(key)}
-                      </div>
-                      <div className="mt-2 text-xs text-slate-600">
-                        {t(`${key}.desc`)}
-                      </div>
+                {[
+                  "home.feature.research",
+                  "home.feature.insight",
+                  "home.feature.clarity",
+                ].map((key) => (
+                  <div
+                    key={key}
+                    className="rounded-xl border border-slate-200 bg-white/80 p-4 shadow-sm"
+                  >
+                    <div className="text-xs font-semibold text-brand-navy">
+                      {t(key)}
                     </div>
-                  ),
-                )}
+                    <div className="mt-2 text-xs text-slate-600">
+                      {t(`${key}.desc`)}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* 视觉列：品牌化统计卡片 */}
+            {/* 视觉列：编辑型大图 + 渐变蒙版 */}
             <div className="relative">
               <div className="relative overflow-hidden rounded-3xl bg-brand-navy text-white shadow-xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/50 via-transparent to-brand-teal/40" />
-                <div className="relative px-8 py-7 flex flex-col gap-6">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.16em] text-slate-200">
-                      {t("home.section.impact")}
-                    </p>
-                    <p className="mt-2 text-lg font-semibold">
-                      {t("home.numbers.title")}
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                    <div className="space-y-1">
-                      <div className="text-2xl font-semibold">100,000+</div>
-                      <div className="text-xs text-slate-200">
-                        {t("home.numbers.interviews")}
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <div className="text-2xl font-semibold">100+</div>
-                      <div className="text-xs text-slate-200">
-                        {t("home.numbers.projects")}
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <div className="text-2xl font-semibold">55+</div>
-                      <div className="text-xs text-slate-200">
-                        {t("home.numbers.experience")}
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="mt-2 text-[11px] leading-relaxed text-slate-200">
-                    Research and advisory expertise since 2009 — the scale and
-                    reach of our work speaks for itself.
+                <div className="absolute inset-0">
+                  <Image
+                    src="/images/carousel3.jpeg"
+                    alt="Team reviewing insight dashboards"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/80 via-brand-blue/40 to-brand-teal/40" />
+                </div>
+                <div className="relative flex min-h-[260px] flex-col justify-end px-8 py-7">
+                  <p className="text-xs uppercase tracking-[0.16em] text-slate-200">
+                    ICR • Evidence you can act on
+                  </p>
+                  <p className="mt-2 text-lg font-semibold">
+                    Turning complex evidence into confident decisions for leaders.
                   </p>
                 </div>
               </div>
@@ -124,6 +175,15 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* 主要服务入口：模块化卡片网格 */}
+      <CardGrid
+        className="bg-brand-soft-bg"
+        eyebrow="核心服务版块"
+        title="从研究到战略落地的一站式能力"
+        subtitle="围绕公共部门与企业的关键问题，提供从证据生成、分析到决策支持与能力建设的完整链路。"
+        items={primaryServices}
+      />
 
       {/* 图片轮播：编辑型真实图片，叠加深色蒙版 */}
       <section className="bg-brand-navy">
@@ -145,7 +205,7 @@ export default function HomePage() {
       {/* 我们的专业领域 */}
       <section className="bg-brand-soft-bg py-14">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="max-w-3xl text-center mx-auto">
+          <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl md:text-3xl font-semibold text-brand-navy">
               {t("home.expertise.title")}
             </h2>
@@ -180,7 +240,7 @@ export default function HomePage() {
       {/* 为什么选择 ICR */}
       <section className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="max-w-3xl text-center mx-auto">
+          <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl md:text-3xl font-semibold text-brand-navy">
               {t("home.why.title")}
             </h2>
@@ -201,7 +261,9 @@ export default function HomePage() {
               <div
                 key={key}
                 className={`rounded-2xl border bg-white p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md ${
-                  index === 1 ? "border-brand-blue/40 bg-brand-blue/5" : "border-slate-200"
+                  index === 1
+                    ? "border-brand-blue/40 bg-brand-blue/5"
+                    : "border-slate-200"
                 }`}
               >
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
@@ -245,45 +307,44 @@ export default function HomePage() {
             {t("home.numbers.title")}
           </h2>
 
-          <p className="mt-3 max-w-2xl mx-auto text-sm md:text-base text-slate-200">
-            Research and advisory expertise since 2009 — the scale and reach of
-            our work speaks for itself.
+          <p className="mt-3 mx-auto max-w-2xl text-sm md:text-base text-slate-200">
+            Research and advisory expertise since 2009 — the scale and reach of our
+            work speaks for itself.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="flex flex-col items-center text-center px-4">
+            <div className="flex flex-col items-center px-4 text-center">
               <div className="text-4xl md:text-5xl font-semibold tracking-tight">
                 100,000+
               </div>
               <div className="mt-3 text-sm font-medium">
                 {t("home.numbers.interviews")}
               </div>
-              <p className="mt-2 text-xs text-slate-200 max-w-xs">
-                Face-to-face, telephone, and digital data collection — and
-                counting.
+              <p className="mt-2 max-w-xs text-xs text-slate-200">
+                Face-to-face, telephone, and digital data collection — and counting.
               </p>
             </div>
 
-            <div className="flex flex-col items-center text-center px-4">
+            <div className="flex flex-col items-center px-4 text-center">
               <div className="text-4xl md:text-5xl font-semibold tracking-tight">
                 100+
               </div>
               <div className="mt-3 text-sm font-medium">
                 {t("home.numbers.projects")}
               </div>
-              <p className="mt-2 text-xs text-slate-200 max-w-xs">
+              <p className="mt-2 max-w-xs text-xs text-slate-200">
                 Completed across multiple sectors and industries.
               </p>
             </div>
 
-            <div className="flex flex-col items-center text-center px-4">
+            <div className="flex flex-col items-center px-4 text-center">
               <div className="text-4xl md:text-5xl font-semibold tracking-tight">
                 55+
               </div>
               <div className="mt-3 text-sm font-medium">
                 {t("home.numbers.experience")}
               </div>
-              <p className="mt-2 text-xs text-slate-200 max-w-xs">
+              <p className="mt-2 max-w-xs text-xs text-slate-200">
                 Across research, analysis, and strategic advisory roles.
               </p>
             </div>
@@ -291,10 +352,44 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 最新洞察预览 */}
+      <section className="bg-white py-14">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-xl">
+              <h2 className="text-2xl md:text-3xl font-semibold text-brand-navy">
+                最新洞察与研究示例
+              </h2>
+              <p className="mt-2 text-sm md:text-base text-slate-600">
+                以下为静态示例卡片，用于展示未来洞察内容的排版与信息层级。
+              </p>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <span className="text-slate-500">查看更多分析与报告</span>
+              <Link
+                href="/insights"
+                className="text-brand-blue hover:text-brand-teal font-semibold"
+              >
+                前往洞察中心 →
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {insightPreviews.map((item) => (
+              <InsightCard key={item.id} href="/insights" {...item} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 客户与合作伙伴 Logo 带柔和灰底 */}
+      <PartnersBand />
+
       {/* Why organisations trust ICR */}
       <section className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="max-w-3xl text-center mx-auto">
+          <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl md:text-3xl font-semibold text-brand-navy">
               {t("home.trust.title")}
             </h2>
@@ -309,8 +404,7 @@ export default function HomePage() {
                 {t("home.trust.delivery")}
               </h3>
               <p className="mt-2 text-xs text-slate-600">
-                Robust research design, quality assurance, and defensible
-                findings.
+                Robust research design, quality assurance, and defensible findings.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -318,8 +412,8 @@ export default function HomePage() {
                 {t("home.trust.engagement")}
               </h3>
               <p className="mt-2 text-xs text-slate-600">
-                Engagement models built around governance structures and
-                decision forums.
+                Engagement models built around governance structures and decision
+                forums.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -327,8 +421,7 @@ export default function HomePage() {
                 {t("home.trust.team")}
               </h3>
               <p className="mt-2 text-xs text-slate-600">
-                Public, corporate, and international experience in one senior
-                team.
+                Public, corporate, and international experience in one senior team.
               </p>
             </div>
           </div>
@@ -337,12 +430,16 @@ export default function HomePage() {
 
       {/* 最终 CTA 区块 */}
       <section className="bg-gradient-to-r from-brand-blue to-brand-teal py-12 text-white">
-        <div className="mx-auto max-w-7xl px-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className={isArabic ? "md:text-right text-center" : "text-center md:text-left"}>
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 md:flex-row md:items-center md:justify-between">
+          <div
+            className={
+              isArabic ? "md:text-right text-center" : "text-center md:text-left"
+            }
+          >
             <h2 className="text-2xl md:text-3xl font-semibold">
               {t("home.final.title")}
             </h2>
-            <p className="mt-2 text-sm md:text-base text-white/90 max-w-xl mx-auto md:mx-0">
+            <p className="mt-2 mx-auto max-w-xl text-sm md:text-base text-white/90 md:mx-0">
               {t("home.final.description")}
             </p>
           </div>

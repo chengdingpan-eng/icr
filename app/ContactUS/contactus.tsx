@@ -2,6 +2,7 @@
 
 import { FormEvent, useRef, useState, ChangeEvent } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Mail, Facebook, Linkedin, X, Upload, FileText } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -50,7 +51,7 @@ export default function ContactUs() {
 
     if (!powerAutomateUrl) {
       alert(
-        "Form submission is not configured. Please contact the administrator."
+        "Form submission is not configured. Please contact the administrator.",
       );
       setIsSubmitting(false);
       return;
@@ -104,7 +105,7 @@ export default function ContactUs() {
 
       if (response.ok) {
         alert(
-          "Thank you for your enquiry! We will review your submission and respond within 24-48 hours."
+          "Thank you for your enquiry! We will review your submission and respond within 24-48 hours.",
         );
         form.reset();
         setSelectedFile(null);
@@ -114,7 +115,7 @@ export default function ContactUs() {
     } catch (error) {
       console.error("Error:", error);
       alert(
-        "There was an error submitting your form. Please try again or contact us directly at info@icr-me.com"
+        "There was an error submitting your form. Please try again or contact us directly at info@icr-me.com",
       );
     } finally {
       setIsSubmitting(false);
@@ -129,7 +130,8 @@ export default function ContactUs() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      <section className="w-full relative  bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] text-white py-6">
+      {/* Hero：保留现有结构与色彩，仅作为入口叙事 */}
+      <section className="relative w-full bg-linear-to-br from-[#041a2e] via-[#062944] to-[#041a2e] py-6 text-white">
         {/* decorative pattern */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <svg
@@ -158,14 +160,10 @@ export default function ContactUs() {
               fill="none"
             />
           </svg>
-          <div className="absolute inset-0 bg-linear-to-br from-black/20 to-black/40 pointer-events-none" />
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-black/20 to-black/40" />
         </div>
 
         <div className="mx-auto max-w-4xl px-4 text-center">
-          {/* <div className="inline-block rounded-full bg-black/20 px-3 py-1 text-xs text-white/70 mb-4">
-            {t("nav.contact")}
-          </div> */}
-
           <h1 className="mx-auto max-w-4xl text-3xl font-sans leading-tight text-white md:text-5xl">
             {t("contact.hero.title")}
             <br />
@@ -189,7 +187,7 @@ export default function ContactUs() {
               {t("contact.cta.discuss")} »
             </Button>
             <Link href="/services">
-              <Button className="bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-brand-navy">
+              <Button className="border border-brand-teal bg-transparent text-brand-teal hover:bg-brand-teal hover:text-brand-navy">
                 {t("contact.cta.services")}
               </Button>
             </Link>
@@ -197,17 +195,19 @@ export default function ContactUs() {
         </div>
       </section>
 
-      <section className="py-10 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 grid gap-12 lg:grid-cols-2 items-start">
-          {/* Left: Contact info */}
+      {/* 布局主体：左侧信息 + 右侧表单 */}
+      <section className="bg-slate-50 py-10">
+        <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 lg:grid-cols-2">
+          {/* Left: Contact info, map & office locations */}
           <div className="space-y-8">
             <h2 className="text-3xl font-bold text-slate-900">
               {t("contact.getintouch.title")}
             </h2>
 
-            <div className="divide-y divide-slate-200 bg-white rounded-lg p-6 shadow-sm">
-              <div className="flex gap-4 py-6 items-center">
-                <div className="h-12 w-12 flex items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
+            <div className="rounded-lg bg-white p-6 shadow-sm divide-y divide-slate-200">
+              {/* Email */}
+              <div className="flex items-center gap-4 py-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-blue/10 text-brand-blue">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
@@ -215,10 +215,10 @@ export default function ContactUs() {
                     {t("contact.email.title")}
                   </h3>
                   <p className="mt-2 text-sm text-slate-600">
-                    {t("contact.email.desc")}{" "}
+                    {t("contact.email.desc")} {" "}
                     <a
                       href="mailto:info@icr-me.com"
-                      className="text-brand-blue font-medium hover:text-brand-navy transition-colors"
+                      className="font-medium text-brand-blue transition-colors hover:text-brand-navy"
                     >
                       info@icr-me.com
                     </a>
@@ -226,6 +226,7 @@ export default function ContactUs() {
                 </div>
               </div>
 
+              {/* Social media */}
               <div className="pt-6">
                 <h3 className="text-sm font-semibold text-slate-900">
                   {t("contact.social.title")}
@@ -234,49 +235,98 @@ export default function ContactUs() {
                   <a
                     href="#"
                     aria-label="Facebook"
-                    className="inline-flex items-center justify-center h-9 w-9 rounded-full bg-white border"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border bg-white"
                   >
                     <Facebook className="h-4 w-4 text-blue-600" />
                   </a>
                   <a
                     href="#"
                     aria-label="LinkedIn"
-                    className="inline-flex items-center justify-center h-9 w-9 rounded-full bg-white border"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border bg-white"
                   >
                     <Linkedin className="h-4 w-4 text-blue-700" />
                   </a>
                   <a
                     href="#"
                     aria-label="X"
-                    className="inline-flex items-center justify-center h-9 w-9 rounded-full bg-white border"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border bg-white"
                   >
                     <X className="h-4 w-4 text-slate-900" />
                   </a>
                 </div>
               </div>
+
+              {/* Map thumbnail */}
+              <div className="pt-6">
+                <h3 className="text-sm font-semibold text-slate-900">
+                  地图与办公地点示意
+                </h3>
+                <p className="mt-2 text-xs text-slate-500">
+                  该区域为静态地图缩略图占位，后续可替换为真实地图组件或嵌入服务。
+                </p>
+                <div className="mt-3 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
+                  <div className="relative h-40 w-full">
+                    <Image
+                      src="/images/globe1.jpg"
+                      alt="Map thumbnail placeholder"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy/60 via-transparent to-brand-teal/40" />
+                    <div className="absolute bottom-3 left-4 text-xs font-semibold text-white">
+                      地图缩略图占位
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Office locations */}
+              <div className="space-y-3 pt-6">
+                <h3 className="text-sm font-semibold text-slate-900">
+                  办公地点（示意）
+                </h3>
+                <p className="text-xs text-slate-500">
+                  以下信息为静态示意，可在未来接入真实地址与联系方式。
+                </p>
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700">
+                    <div className="font-semibold text-brand-navy">Riyadh Office</div>
+                    <p className="mt-1">
+                      示例：市中心商务区，便于与政府与企业客户面对面沟通。
+                    </p>
+                    <p className="mt-2 text-slate-500">Phone（示意）：+966 11 000 0000</p>
+                  </div>
+                  <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700">
+                    <div className="font-semibold text-brand-navy">Dubai Office</div>
+                    <p className="mt-1">
+                      示例：连接区域项目团队，覆盖更广泛的海湾与国际合作。
+                    </p>
+                    <p className="mt-2 text-slate-500">Phone（示意）：+971 4 000 0000</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right: Contact form */}
+          {/* Right: Contact form（保留原有提交逻辑） */}
           <div className="relative">
             {/* Pulse indicator */}
             {showIndicator && (
               <div className="absolute -inset-4 rounded-3xl animate-pulse">
                 <div className="absolute inset-0 rounded-3xl bg-brand-blue/20 animate-ping" />
-                <div className="absolute inset-0 rounded-3xl bg-brand-blue/30 border-2 border-brand-blue/50" />
+                <div className="absolute inset-0 rounded-3xl border-2 border-brand-blue/50 bg-brand-blue/30" />
               </div>
             )}
 
             <form
               ref={formRef}
-              className="relative bg-[#071827] p-8 rounded-2xl shadow-lg text-white transition-all duration-300"
+              className="relative rounded-2xl bg-[#071827] p-8 text-white shadow-lg transition-all duration-300"
               onSubmit={handleSubmit}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="block text-sm text-slate-300">
-                    {t("contact.form.name")}{" "}
-                    <span className="text-red-400">*</span>
+                    {t("contact.form.name")} <span className="text-red-400">*</span>
                   </label>
                   <input
                     name="name"
@@ -287,8 +337,7 @@ export default function ContactUs() {
                 </div>
                 <div>
                   <label className="block text-sm text-slate-300">
-                    {t("contact.form.email")}{" "}
-                    <span className="text-red-400">*</span>
+                    {t("contact.form.email")} <span className="text-red-400">*</span>
                   </label>
                   <input
                     name="email"
@@ -312,8 +361,7 @@ export default function ContactUs() {
 
               <div className="mt-4">
                 <label className="block text-sm text-slate-300">
-                  {t("contact.form.message")}{" "}
-                  <span className="text-red-400">*</span>
+                  {t("contact.form.message")} <span className="text-red-400">*</span>
                 </label>
                 <textarea
                   name="message"
@@ -321,22 +369,22 @@ export default function ContactUs() {
                   required
                   disabled={isSubmitting}
                   className="mt-2 w-full rounded-md border border-slate-700 bg-transparent px-3 py-2 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 disabled:opacity-50"
-                ></textarea>
+                />
               </div>
 
               {/* File Upload */}
               <div className="mt-4">
-                <label className="block text-sm text-slate-300 mb-2">
+                <label className="mb-2 block text-sm text-slate-300">
                   {t("contact.form.upload")}
                 </label>
                 <div
                   onClick={() => !isSubmitting && fileInputRef.current?.click()}
-                  className={`w-full rounded-md border-2 border-dashed ${
+                  className={`w-full cursor-pointer rounded-md border-2 border-dashed px-4 py-8 text-center transition-colors ${
                     selectedFile
                       ? "border-brand-teal/60 bg-brand-teal/5"
                       : "border-slate-700 bg-transparent"
-                  } px-4 py-8 text-center cursor-pointer hover:border-brand-teal transition-colors ${
-                    isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                  } ${
+                    isSubmitting ? "cursor-not-allowed opacity-50" : "hover:border-brand-teal"
                   }`}
                 >
                   <input
@@ -351,11 +399,11 @@ export default function ContactUs() {
                   <div className="flex flex-col items-center justify-center">
                     {selectedFile ? (
                       <>
-                        <FileText className="h-8 w-8 text-brand-teal mb-2" />
-                        <span className="text-brand-teal text-sm font-medium">
+                        <FileText className="mb-2 h-8 w-8 text-brand-teal" />
+                        <span className="text-sm font-medium text-brand-teal">
                           {selectedFile.name}
                         </span>
-                        <span className="text-slate-500 text-xs mt-1">
+                        <span className="mt-1 text-xs text-slate-500">
                           {(selectedFile.size / 1024 / 1024).toFixed(2)} MB
                         </span>
                         <button
@@ -374,14 +422,14 @@ export default function ContactUs() {
                       </>
                     ) : (
                       <>
-                        <Upload className="h-8 w-8 text-brand-teal mb-2" />
-                        <span className="text-slate-400 text-sm">
+                        <Upload className="mb-2 h-8 w-8 text-brand-teal" />
+                        <span className="text-sm text-slate-400">
                           {t("contact.form.upload.instruction")}
                         </span>
-                        <span className="text-slate-500 text-xs mt-1">
+                        <span className="mt-1 text-xs text-slate-500">
                           {t("contact.form.upload.note")}
                         </span>
-                        <span className="text-slate-500 text-xs mt-1">
+                        <span className="mt-1 text-xs text-slate-500">
                           {t("contact.form.upload.format")}
                         </span>
                       </>
@@ -393,12 +441,12 @@ export default function ContactUs() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full rounded-md bg-brand-blue py-3 text-sm font-semibold hover:bg-brand-navy disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                className="mt-6 flex w-full items-center justify-center gap-2 rounded-md bg-brand-blue py-3 text-sm font-semibold transition-all hover:bg-brand-navy disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <>
                     <svg
-                      className="animate-spin h-4 w-4"
+                      className="h-4 w-4 animate-spin"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -410,12 +458,12 @@ export default function ContactUs() {
                         r="10"
                         stroke="currentColor"
                         strokeWidth="4"
-                      ></circle>
+                      />
                       <path
                         className="opacity-75"
                         fill="currentColor"
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
+                      />
                     </svg>
                     {t("contact.form.submitting")}
                   </>
@@ -425,10 +473,10 @@ export default function ContactUs() {
               </button>
 
               {/* Confidentiality Notice */}
-              <div className="mt-4 flex items-start gap-2 p-3 rounded-lg bg-brand-blue/5 border border-brand-blue/30">
+              <div className="mt-4 flex items-start gap-2 rounded-lg border border-brand-blue/30 bg-brand-blue/5 p-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-brand-teal flex-shrink-0 mt-0.5"
+                  className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-teal"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -450,16 +498,16 @@ export default function ContactUs() {
       </section>
 
       {/* What Happens Next Section */}
-      <section className="w-full py-12 bg-gradient-to-br from-[#0a1f2e] to-[#041a2e]">
+      <section className="w-full bg-gradient-to-br from-[#0a1f2e] to-[#041a2e] py-12">
         <div className="mx-auto max-w-5xl px-4">
-          <div className="text-center mb-12">
-            <div className="inline-block rounded-full bg-brand-blue/15 border border-brand-blue/40 px-4 py-1 text-sm text-brand-teal font-semibold mb-4 shadow-sm">
+          <div className="mb-12 text-center">
+            <div className="mb-4 inline-block rounded-full border border-brand-blue/40 bg-brand-blue/15 px-4 py-1 text-sm font-semibold text-brand-teal shadow-sm">
               {t("contact.next.badge")}
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               {t("contact.next.title")}
             </h2>
-            <p className="text-base text-slate-300 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-base text-slate-300">
               {t("contact.next.description")}
             </p>
           </div>
@@ -469,16 +517,16 @@ export default function ContactUs() {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-brand-blue/35 md:hidden" />
 
             {/* Timeline line - horizontal on desktop */}
-            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-brand-blue/35" />
+            <div className="absolute left-0 right-0 top-12 hidden h-0.5 bg-brand-blue/35 md:block" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
               {/* Step 1 */}
-              <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg flex-shrink-0">
+              <div className="relative flex items-start text-left md:flex-col md:items-center md:text-center">
+                <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg">
                   <span className="text-2xl font-bold text-white">01</span>
                 </div>
                 <div className="ml-6 md:ml-0 md:mt-6">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("contact.next.step1")}
                   </h3>
                   <p className="text-sm text-slate-300">
@@ -488,12 +536,12 @@ export default function ContactUs() {
               </div>
 
               {/* Step 2 */}
-              <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg flex-shrink-0">
+              <div className="relative flex items-start text-left md:flex-col md:items-center md:text-center">
+                <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg">
                   <span className="text-2xl font-bold text-white">02</span>
                 </div>
                 <div className="ml-6 md:ml-0 md:mt-6">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("contact.next.step2")}
                   </h3>
                   <p className="text-sm text-slate-300">
@@ -503,12 +551,12 @@ export default function ContactUs() {
               </div>
 
               {/* Step 3 */}
-              <div className="relative flex md:flex-col items-start md:items-center text-left md:text-center">
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg shrink-0">
+              <div className="relative flex items-start text-left md:flex-col md:items-center md:text-center">
+                <div className="relative z-10 flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-teal shadow-lg">
                   <span className="text-2xl font-bold text-white">03</span>
                 </div>
                 <div className="ml-6 md:ml-0 md:mt-6">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="mb-2 text-lg font-semibold text-white">
                     {t("contact.next.step3")}
                   </h3>
                   <p className="text-sm text-slate-300">
@@ -521,11 +569,11 @@ export default function ContactUs() {
 
           {/* CTA */}
           <div className="mt-12 text-center">
-            <p className="text-sm text-slate-400 mb-4">
+            <p className="mb-4 text-sm text-slate-400">
               {t("contact.urgent")}{" "}
               <a
                 href="mailto:info@icr-me.com"
-                className="text-brand-teal font-semibold hover:text-brand-blue transition-colors"
+                className="font-semibold text-brand-teal transition-colors hover:text-brand-blue"
               >
                 info@icr-me.com
               </a>
