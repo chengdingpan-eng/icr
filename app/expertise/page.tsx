@@ -4,54 +4,104 @@ import Image from "next/image";
 import Link from "next/link";
 import { GradientCTAButton } from "../components/GradientCTAButton";
 
-const EXPERTISE_SECTIONS = [
+interface ExpertiseBlock {
+  id: string;
+  title: string;
+  /** 摘要段落，保持与官网文案完全一致 */
+  summary: string[];
+  /** 要点列表，保持与官网文案完全一致 */
+  points: string[];
+  image: string;
+}
+
+const EXPERTISE_BLOCKS: ExpertiseBlock[] = [
   {
-    id: "public-policy",
-    title: "公共政策与社会研究",
-    description:
-      "围绕公共服务质量、生活满意度、城市体验与公共安全等议题，我们为政府机构与公共部门设计长期追踪与专项研究，帮助理解公民需求与政策影响。",
-    points: [
-      "公民满意度与信任度追踪",
-      "政策试点与项目评估",
-      "舆论与媒体监测结合民调数据",
+    id: "government-public",
+    title: "政府与公共部门项目",
+    summary: [
+      "我们拥有支持政府及公共部门实体的深厚经验，提供包括研究、评估及顾问咨询在内的全方位服务。",
+      "我们的工作深刻体现了对治理框架、问责要求以及实证支撑（以应对公众与监管审查）的理解。",
     ],
-    image: "/images/ipsos_style/expertise_public.png",
+    points: [
+      "政策研究与项目监测",
+      "公共服务绩效评估",
+      "利益相关者与受益人研究",
+      "旨在驱动政策与项目优化的影响评估研究",
+    ],
+    image: "/images/expertise/expertise_block_1.png",
   },
   {
-    id: "consumer-retail",
-    title: "消费、零售与品牌研究",
-    description:
-      "从品牌健康度到门店执行，我们帮助企业理解消费者在真实环境中的选择与体验，为产品创新、定价与渠道策略提供依据。",
-    points: [
-      "品牌认知与形象追踪",
-      "新品概念与包装测试",
-      "现代渠道与传统渠道零售盘点",
+    id: "enterprise-market",
+    title: "企业与市场导向专业服务",
+    summary: [
+      "除公共部门外，我们也为在复杂竞争环境中运营的企业组织提供专业支持。",
+      "我们的洞察协助组织精准把握市场动态、消费者行为及运营表现，为战略规划和投资决策提供科学依据。",
     ],
-    image: "/images/ipsos_style/expertise_consumer.png",
+    points: [
+      "市场与机会评估",
+      "消费者与购物者研究",
+      "品牌表现追踪",
+      "市场准入与竞争分析",
+    ],
+    image: "/images/expertise/expertise_block_2.png",
   },
   {
-    id: "experience-service",
-    title: "客户体验与服务质量",
-    description:
-      "通过神秘顾客、体验旅程与接触点调研，帮助你识别体验短板，优化流程和前线服务表现。",
-    points: [
-      "全渠道客户旅程梳理",
-      "神秘顾客与门店体验评估",
-      "NPS / CSAT 等体验指标体系设计",
+    id: "methodology-analytics",
+    title: "方法论与分析优势",
+    summary: [
+      "我们的专业能力建立在定量、定性及混合研究方法的强大实力之上。",
+      "每一项研究均紧密结合决策情境量身定制，确保方法适配、数据可靠且逻辑明晰。",
     ],
-    image: "/images/ipsos_style/expertise_experience.png",
+    points: [
+      "大规模定量调查",
+      "定性访谈与焦点小组",
+      "纵向追踪研究框架",
+      "跨多源数据的综合分析",
+    ],
+    image: "/images/expertise/expertise_block_3.png",
   },
   {
-    id: "people-employee",
-    title: "雇主品牌与员工体验",
-    description:
-      "围绕组织文化、激励机制与员工敬业度，我们协助 HR 与业务领导团队共同理解“在这里工作”的真实感受。",
-    points: [
-      "员工敬业度与敬业驱动因素分析",
-      "领导力与管理者反馈项目",
-      "雇主品牌与候选人体验研究",
+    id: "ai-in-research",
+    title: "人工智能在研究流程中的应用",
+    summary: [
+      "我们在研究与分析流程中引入 AI 赋能工具，以提升效率、确保一致性并增强洞察生成能力。",
+      "这些工具的应用始终处于严密的方法论监督与人类专业判断之下。",
     ],
-    image: "/images/ipsos_style/expertise_employee.png",
+    points: [
+      "AI 支持的数据准备与清洗",
+      "模式识别与趋势分析",
+      "文本与定性数据处理",
+      "结合专家审核的 AI 辅助分析建模",
+    ],
+    image: "/images/expertise/expertise_block_4.png",
+  },
+  {
+    id: "decision-oriented",
+    title: "决策导向型应用",
+    summary: [
+      "在所有专业领域中，我们的工作始终以决策为指引。",
+      "我们优先考虑洞察的明晰性、相关性与实际应用价值，确保产出成果能够直接呈递至高层管理者，并与组织战略目标高度对齐。",
+    ],
+    points: [
+      "政策制定与项目评估支持",
+      "战略优先级排序与投资规划建议",
+      "面向管理层的决策就绪型报告与建议",
+    ],
+    image: "/images/expertise/expertise_block_5.png",
+  },
+  {
+    id: "closing-summary",
+    title: "结语",
+    summary: [
+      "我们的专业水准体现了行业知识、严谨方法与分析创新的完美平衡。",
+      "通过将政府与企业项目的丰富经验与先进研究能力相结合，我们协助各组织做出明智、自信且经得起推敲的决策。",
+    ],
+    points: [
+      "行业知识与严谨方法论",
+      "分析创新与整合洞察",
+      "面向高层的决策就绪型交付",
+    ],
+    image: "/images/expertise/expertise_block_6.png",
   },
 ];
 
@@ -65,10 +115,10 @@ export default function ExpertisePage() {
           <h1 className="text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
             专业领域
             <br />
-            覆盖政策、市场与体验的完整链路
+            覆盖政策、市场与决策链路的关键环节
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-200 md:text-base">
-            ICR 团队在公共政策、消费品与零售、服务与体验以及组织与人才等领域具有长期项目经验，能够在同一个研究框架下，连接不同利益相关方的视角。
+            在 Insight 咨询与研究 (ICR)，我们的专业核心在于通过严谨的研究与分析，支持公共、企业及国际领域的复杂决策。我们将深厚的行业知识、严密的方法论以及前沿的分析能力相结合，致力于解决战略、运营及政策层面的核心挑战。
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <GradientCTAButton href="/ContactUS">讨论你的研究场景</GradientCTAButton>
@@ -79,14 +129,14 @@ export default function ExpertisePage() {
         </div>
       </section>
 
-      {/* Zig-zag 图文块 */}
+      {/* 6 块专业领域：Zig-zag 图文块 */}
       <section className="bg-brand-soft-bg py-16">
         <div className="mx-auto max-w-6xl space-y-16 px-4">
-          {EXPERTISE_SECTIONS.map((section, index) => {
+          {EXPERTISE_BLOCKS.map((block, index) => {
             const reversed = index % 2 === 1;
             return (
               <div
-                key={section.id}
+                key={block.id}
                 className="grid gap-10 md:grid-cols-2 md:items-center md:gap-14"
               >
                 <div
@@ -97,13 +147,18 @@ export default function ExpertisePage() {
                   }
                 >
                   <h2 className="text-2xl font-semibold text-brand-navy md:text-3xl">
-                    {section.title}
+                    {block.title}
                   </h2>
-                  <p className="mt-3 text-sm text-slate-700 md:text-base">
-                    {section.description}
-                  </p>
+                  {block.summary.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="mt-3 text-sm text-slate-700 md:text-base"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                   <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                    {section.points.map((item) => (
+                    {block.points.map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gradient-to-r from-brand-blue to-brand-teal" />
                         <span>{item}</span>
@@ -121,8 +176,8 @@ export default function ExpertisePage() {
                 >
                   <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md">
                     <Image
-                      src={section.image}
-                      alt={section.title}
+                      src={block.image}
+                      alt={block.title}
                       width={640}
                       height={400}
                       className="h-full w-full object-cover"

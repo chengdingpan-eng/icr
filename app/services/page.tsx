@@ -95,7 +95,7 @@ const INTELLIGENCE_SERVICES: IntelligenceService[] = [
 const EXCELLENCE_STEPS: StaggeredTimelineStep[] = [
   {
     id: "step-1",
-    step: "01",
+    step: 1,
     title: "明确决策目标",
     description:
       "在项目启动阶段清晰界定决策需求与核心问题，识别真正需要通过研究回答的关键决策场景。",
@@ -103,7 +103,7 @@ const EXCELLENCE_STEPS: StaggeredTimelineStep[] = [
   },
   {
     id: "step-2",
-    step: "02",
+    step: 2,
     title: "结构化交付",
     description:
       "依托标准化流程与严谨的质量控制体系，确保样本、执行与数据处理的每一个环节都有清晰的责任与校验点。",
@@ -111,7 +111,7 @@ const EXCELLENCE_STEPS: StaggeredTimelineStep[] = [
   },
   {
     id: "step-3",
-    step: "03",
+    step: 3,
     title: "持续监管与校验",
     description:
       "在项目全过程对方法论与数据进行持续验证与把控，及时发现并纠正潜在偏差。",
@@ -119,7 +119,7 @@ const EXCELLENCE_STEPS: StaggeredTimelineStep[] = [
   },
   {
     id: "step-4",
-    step: "04",
+    step: 4,
     title: "可执行型成果输出",
     description:
       "提供面向决策、清晰易读且具备实效性的研究报告与汇报素材，便于管理层快速对齐。",
@@ -127,7 +127,7 @@ const EXCELLENCE_STEPS: StaggeredTimelineStep[] = [
   },
   {
     id: "step-5",
-    step: "05",
+    step: 5,
     title: "规范化项目治理",
     description:
       "确保项目范围、流程与成果完全符合客户、监管及利益相关方的要求，并为后续项目沉淀经验。",
@@ -201,7 +201,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 五步卓越流程：左右错开时间线 */}
+      {/* 五步卓越流程：中轴线 + 左右交错统一模块 */}
       <section className="bg-slate-900 py-16 text-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="max-w-3xl">
