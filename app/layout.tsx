@@ -22,6 +22,28 @@ const serifDisplay = Merriweather({
 export const metadata: Metadata = {
   title: "ICR - Insight Consultancy & Research",
   description: "Independent research and advisory firm",
+  openGraph: {
+    title: "ICR - Insight Consultancy & Research",
+    description: "Independent research and advisory firm",
+    url: "https://www.icr-me.com",
+    siteName: "ICR - Insight Consultancy & Research",
+    images: [
+      {
+        url: "/images/gs_style/gs_home_hero.png",
+        width: 1920,
+        height: 1080,
+        alt: "ICR 中文首页预览图：团队在城市高楼会议室内围绕数据讨论",
+      },
+    ],
+    locale: "zh_CN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ICR - Insight Consultancy & Research",
+    description: "Independent research and advisory firm",
+    images: ["/images/gs_style/gs_home_hero.png"],
+  },
   icons: {
     icon: [{ url: "/images/icon.png" }, { url: "/icon.png" }],
     shortcut: "/images/icon.png",
