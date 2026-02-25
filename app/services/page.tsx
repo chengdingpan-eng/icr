@@ -1,147 +1,243 @@
 "use client";
 
-import { BarChart2, LineChart, Target, GraduationCap } from "lucide-react";
-import { HeroSection } from "../components/HeroSection";
-import { CardGrid, type CardGridItem } from "../components/CardGrid";
-import { GradientCTAButton } from "../components/GradientCTAButton";
-import { MethodTimeline, type MethodStep } from "../components/MethodTimeline";
+import Image from "next/image";
+import { IntelligenceCard } from "../components/IntelligenceCard";
+import {
+  StaggeredTimeline,
+  type StaggeredTimelineStep,
+} from "../components/StaggeredTimeline";
+import { CtaButton } from "../components/CtaButton";
 
-const SERVICE_CARDS: CardGridItem[] = [
+interface IntelligenceService {
+  id: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  imageSrc: string;
+}
+
+const INTELLIGENCE_SERVICES: IntelligenceService[] = [
   {
-    id: "research",
-    title: "研究服务",
+    id: "quantitative-research",
+    title: "定量研究 (Quantitative Research)",
     description:
-      "从问卷调查到深度访谈，结合定量与定性方法，回答政策与业务中最关键的问题。",
-    href: "/services",
-    icon: <BarChart2 className="h-4 w-4" />,
+      "运用科学的问卷设计、建模与分析技术，生成稳健、可验证的证据，为战略、运营及公共政策制定提供规模化支持。",
+    bullets: [
+      "科学的问卷与样本框设计，保证代表性与可比性",
+      "多维度建模与细分分析，识别关键影响因素",
+      "支撑战略、运营及公共政策制定的规模化证据",
+    ],
+    imageSrc: "/images/gs_style/blocks_icr_quant.png",
   },
   {
-    id: "analytics",
-    title: "数据分析",
+    id: "qualitative-research",
+    title: "定性研究 (Qualitative Research)",
     description:
-      "打通运营数据、交易数据与研究数据，用仪表盘和建模工具还原真实行为模式。",
-    href: "/services",
-    icon: <LineChart className="h-4 w-4" />,
+      "通过深度访谈及系统化定性方法，拆解行为背后的认知逻辑与情感因素，为结果解读与决策判断提供背景支撑。",
+    bullets: [
+      "深度访谈、焦点小组等多种定性方法组合",
+      "还原行为背后的认知逻辑与情感动因",
+      "为定量结果与管理决策提供情境化解释",
+    ],
+    imageSrc: "/images/gs_style/blocks_icr_qual.png",
   },
   {
-    id: "strategy",
-    title: "战略咨询",
+    id: "tracking-studies",
+    title: "追踪研究 (Tracking Studies)",
     description:
-      "基于证据的战略与政策建议，帮助你优先排序机会、评估方案影响并设计路线图。",
-    href: "/services",
-    icon: <Target className="h-4 w-4" />,
+      "构建持续性的监测框架，长期追踪指标变化，精准识别新兴趋势并支持纵向洞察。",
+    bullets: [
+      "设计可持续运行的长期监测体系",
+      "关注关键指标的节奏与结构性变化",
+      "为品牌、体验与政策提供纵向洞察",
+    ],
+    imageSrc: "/images/gs_style/blocks_icr_tracking.png",
   },
   {
-    id: "training",
-    title: "培训与赋能",
+    id: "retail-shopper",
+    title: "零售与购物者研究 (Retail & Shopper Research)",
     description:
-      "为内部团队提供研究方法、数据分析与洞察呈现的系统培训与共创工作坊。",
-    href: "/services",
-    icon: <GraduationCap className="h-4 w-4" />,
+      "基于结构化的线下审计与实地观察研究，在真实商业生态中获取一手可靠数据。",
+    bullets: [
+      "门店审计与货架盘点，量化终端表现",
+      "购物路径与决策节点的现场观察与访谈",
+      "为渠道策略与生动化执行提供依据",
+    ],
+    imageSrc: "/images/gs_style/blocks_icr_retail.png",
+  },
+  {
+    id: "market-assessment",
+    title:
+      "市场评估与机会分析 (Market Assessments & Opportunity Analysis)",
+    description:
+      "开展市场规模评估、细分研究及对标分析，为复杂市场中的战略优先级、进入路径及投资决策提供依据。",
+    bullets: [
+      "市场规模与结构评估，量化机会空间",
+      "细分人群与场景，识别高价值组合",
+      "支持进入路径、资源分配与投资决策",
+    ],
+    imageSrc: "/images/gs_style/blocks_icr_market.png",
+  },
+  {
+    id: "strategic-consulting",
+    title: "战略咨询 (Strategic Consulting)",
+    description:
+      "提供研究导向的咨询与决策支持服务，将研究结论转化为清晰的决策选项、影响分析与管理层建议。",
+    bullets: [
+      "基于证据的战略与政策讨论框架",
+      "将研究结论转化为可比较的决策选项",
+      "为管理层准备清晰、可执行的行动建议",
+    ],
+    imageSrc: "/images/gs_style/blocks_icr_consulting.png",
   },
 ];
 
-const PROCESS_STEPS: MethodStep[] = [
+const EXCELLENCE_STEPS: StaggeredTimelineStep[] = [
   {
-    label: "01",
-    title: "对齐问题与成功样貌",
+    id: "step-1",
+    step: "01",
+    title: "明确决策目标",
     description:
-      "与核心决策人共创项目 brief，界定研究要支持的具体决策与成功指标。",
+      "在项目启动阶段清晰界定决策需求与核心问题，识别真正需要通过研究回答的关键决策场景。",
+    imageSrc: "/images/kantar_style/steps_1.png",
   },
   {
-    label: "02",
-    title: "设计研究与数据方案",
+    id: "step-2",
+    step: "02",
+    title: "结构化交付",
     description:
-      "选择合适的样本框与方法（问卷、访谈、工作坊等），并梳理可用的内部数据源。",
+      "依托标准化流程与严谨的质量控制体系，确保样本、执行与数据处理的每一个环节都有清晰的责任与校验点。",
+    imageSrc: "/images/kantar_style/steps_2.png",
   },
   {
-    label: "03",
-    title: "现场执行与质量控制",
+    id: "step-3",
+    step: "03",
+    title: "持续监管与校验",
     description:
-      "通过培训、督导与实时监控，保证问卷回收与访谈记录的质量与代表性。",
+      "在项目全过程对方法论与数据进行持续验证与把控，及时发现并纠正潜在偏差。",
+    imageSrc: "/images/kantar_style/steps_3.png",
   },
   {
-    label: "04",
-    title: "分析与洞察生成",
+    id: "step-4",
+    step: "04",
+    title: "可执行型成果输出",
     description:
-      "构建清晰的分析框架，结合可视化、建模与故事化讲述萃取关键洞察。",
+      "提供面向决策、清晰易读且具备实效性的研究报告与汇报素材，便于管理层快速对齐。",
+    imageSrc: "/images/kantar_style/steps_4.png",
   },
   {
-    label: "05",
-    title: "共创行动与评估机制",
+    id: "step-5",
+    step: "05",
+    title: "规范化项目治理",
     description:
-      "与业务团队一起将洞察转化为行动计划，并定义后续监测与评估指标。",
+      "确保项目范围、流程与成果完全符合客户、监管及利益相关方的要求，并为后续项目沉淀经验。",
+    imageSrc: "/images/kantar_style/steps_5.png",
   },
 ];
 
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-background">
-      {/* Hero：编辑型大图 + 渐变遮罩 + 双 CTA */}
-      <HeroSection
-        eyebrow="服务"
-        title="大数据驱动的研究与咨询服务组合"
-        highlighted="从一次项目到长期合作，围绕同一个决策问题展开"
-        description="ICR 结合国际研究标准与本地市场经验，围绕“研究 · 分析 · 战略 · 培训”四大模块，为政府与企业提供一体化的证据与洞察服务。"
-        backgroundImageSrc="/images/ipsos_style/services_hero.png"
-        align="left"
-        childrenBelow={
-          <div className="flex flex-wrap items-center gap-3">
-            <GradientCTAButton href="/ContactUS">讨论项目需求</GradientCTAButton>
-            <GradientCTAButton href="/ContactUS" variant="outline">
-              安排一次介绍会
-            </GradientCTAButton>
+      {/* Hero：Kantar Intelligence 风格导入 */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-purple-950 via-indigo-900 to-slate-950 text-white">
+        <div className="absolute inset-0 opacity-40">
+          <Image
+            src="/images/ipsos_style/services_hero.png"
+            alt="团队在数据与报告前讨论服务方案"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+        <div className="relative mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-medium tracking-[0.18em] text-violet-100">
+            服务 · INTELLIGENCE STYLE
+          </span>
+          <h1 className="serif-headline mt-5 text-3xl md:text-4xl lg:text-5xl">
+            围绕同一个决策问题的六大服务模块
+          </h1>
+          <p className="mt-4 max-w-2xl text-sm text-violet-100 md:text-base">
+            参照 Kantar Solutions 的 Intelligence 栏目设计，我们将 ICR 的定量研究、定性研究、追踪研究、零售与购物者研究、市场评估与机会分析以及战略咨询六类能力，整理为一套可以组合的服务矩阵。
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <CtaButton href="/ContactUS">讨论项目需求</CtaButton>
+            <CtaButton href="#intelligence" variant="ghost">
+              浏览六大服务
+            </CtaButton>
           </div>
-        }
-      />
+        </div>
+      </section>
 
-      {/* 主服务卡片网格 */}
-      <CardGrid
-        eyebrow="四大核心服务"
-        title="围绕同一个洞察问题，提供不同深度的服务组合"
-        subtitle="无论你处于探索、验证还是落地阶段，我们都会围绕清晰的决策问题设计研究与分析方案。"
-        items={SERVICE_CARDS}
-        className="bg-white"
-      />
+      {/* Intelligence 风格 6 卡片 */}
+      <section
+        id="intelligence"
+        className="bg-slate-950 py-14 text-white md:py-16"
+      >
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.18em] text-violet-200">
+              INTELLIGENCE SERVICES
+            </p>
+            <h2 className="serif-headline mt-2 text-2xl md:text-3xl">
+              用六种 Intelligence 视角，拆解同一个业务问题
+            </h2>
+            <p className="mt-3 text-sm text-violet-100 md:text-base">
+              每张卡片代表一种能力模块：从量化证据、质性洞察，到长期追踪、零售现场、市场机会识别与战略咨询。你可以根据项目所处阶段，将其中 2–3 项组合在同一个方案中。
+            </p>
+          </div>
 
-      {/* 方法论时间线 + 说明文案 */}
-      <section className="bg-brand-soft-bg py-14">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-10 md:grid-cols-[1.1fr,1fr] md:items-start">
-            <div>
-              <h2 className="text-2xl font-semibold text-brand-navy md:text-3xl">
-                从 briefing 到行动落地的完整流程
-              </h2>
-              <p className="mt-3 text-sm text-slate-600 md:text-base">
-                与其把研究看成一次性“勾选项”，不如把它视为陪伴决策全过程的能力。ICR 的方法论以决策问题为起点，兼顾研究严谨性与业务节奏，帮助团队在关键节点做出有信心的选择。
-              </p>
-              <p className="mt-2 text-sm text-slate-600 md:text-base">
-                在整个过程中，我们会与项目团队保持频繁沟通：从问卷与讨论提纲到分析框架与汇报故事线，都以“能被采纳、能落地”为标准进行打磨。
-              </p>
-            </div>
-            <div>
-              <MethodTimeline steps={PROCESS_STEPS} tone="light" />
-            </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {INTELLIGENCE_SERVICES.map((service) => (
+              <IntelligenceCard
+                key={service.id}
+                title={service.title}
+                description={service.description}
+                bullets={service.bullets}
+                imageSrc={service.imageSrc}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 五步卓越流程：左右错开时间线 */}
+      <section className="bg-slate-900 py-16 text-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.18em] text-violet-200">
+              五步卓越流程
+            </p>
+            <h2 className="serif-headline mt-2 text-2xl md:text-3xl">
+              从明确决策目标，到规范化项目治理
+            </h2>
+            <p className="mt-3 text-sm text-slate-100 md:text-base">
+              我们将严谨的方法论与实践经验深度融合，确保每一项研究都能切实支撑商业与政策决策。这五个步骤既可以完整应用，也可以针对不同项目阶段灵活选取重点。
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <StaggeredTimeline steps={EXCELLENCE_STEPS} />
           </div>
         </div>
       </section>
 
       {/* 底部品牌化 CTA 横幅 */}
-      <section className="bg-gradient-to-r from-brand-navy via-brand-blue to-brand-teal py-12 text-white">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center md:flex-row md:text-left">
+      <section className="border-t border-slate-800 bg-slate-950 py-12 text-white">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-4 px-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="text-2xl font-semibold md:text-3xl">
-              正在规划下一轮研究或大型项目？
+            <h2 className="serif-headline text-xl md:text-2xl">
+              正在规划一个需要“证据 + 洞察 + 行动方案”的项目？
             </h2>
-            <p className="mt-2 max-w-xl text-sm md:text-base">
-              告诉我们你的目标与时间表，我们会与团队一起评估最佳的研究与分析路径，并给出初步的合作建议与预算区间。
+            <p className="mt-2 max-w-xl text-sm text-slate-200 md:text-base">
+              无论是一次性评估、品牌与体验研究，还是长期追踪体系，我们都可以基于这六大服务模块，和你一起搭建合适的 Intelligence 组合。
             </p>
           </div>
-          <div className="flex flex-col gap-3 md:flex-row">
-            <GradientCTAButton href="/ContactUS">讨论需求</GradientCTAButton>
-            <GradientCTAButton href="/ContactUS" variant="outline">
+          <div className="flex flex-wrap gap-3">
+            <CtaButton href="/ContactUS">讨论需求</CtaButton>
+            <CtaButton href="/services" variant="ghost">
               下载服务白皮书（占位）
-            </GradientCTAButton>
+            </CtaButton>
           </div>
         </div>
       </section>

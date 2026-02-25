@@ -41,35 +41,52 @@ const INSIGHTS = [
 
 const FEATURE_BLOCKS = [
   {
-    id: "research",
-    title: "研究服务",
+    id: "quantitative",
+    title: "定量研究 (Quantitative Research)",
     description:
-      "从大规模问卷到深度访谈，用严谨的方法设计与执行研究，为政策与业务决策提供可靠证据。",
-    imageSrc: "/images/gs_style/gs_blocks_1.png",
+      "运用科学的问卷设计、建模与分析技术，生成稳健、可验证的证据，为战略、运营及公共政策制定提供规模化支持。",
+    imageSrc: "/images/gs_style/blocks_icr_quant.png",
     href: "/services",
   },
   {
-    id: "analytics",
-    title: "数据分析",
+    id: "qualitative",
+    title: "定性研究 (Qualitative Research)",
     description:
-      "整合调查数据、运营指标与外部数据源，通过建模与可视化工具，将零散数据转化为可操作洞见。",
-    imageSrc: "/images/gs_style/gs_blocks_2.png",
+      "通过深度访谈及系统化定性方法，拆解行为背后的认知逻辑与情感因素，为结果解读与决策判断提供背景支撑。",
+    imageSrc: "/images/gs_style/blocks_icr_qual.png",
     href: "/services",
   },
   {
-    id: "strategy",
-    title: "战略咨询",
+    id: "tracking",
+    title: "追踪研究 (Tracking Studies)",
     description:
-      "围绕关键问题设计研究框架，识别机会与风险，帮助团队在复杂环境中做出优先级清晰的决策。",
-    imageSrc: "/images/gs_style/gs_blocks_3.png",
+      "构建持续性的监测框架，长期追踪指标变化，精准识别新兴趋势并支持纵向洞察。",
+    imageSrc: "/images/gs_style/blocks_icr_tracking.png",
     href: "/services",
   },
   {
-    id: "training",
-    title: "培训与赋能",
+    id: "retail-shopper",
+    title: "零售与购物者研究 (Retail & Shopper Research)",
     description:
-      "通过工作坊与系统化培训，帮助团队掌握研究方法与分析思路，把能力沉淀在组织内部。",
-    imageSrc: "/images/gs_style/gs_blocks_4.png",
+      "基于结构化的线下审计与实地观察研究，在真实商业生态中获取一手可靠数据。",
+    imageSrc: "/images/gs_style/blocks_icr_retail.png",
+    href: "/services",
+  },
+  {
+    id: "market-assessment",
+    title:
+      "市场评估与机会分析 (Market Assessments & Opportunity Analysis)",
+    description:
+      "开展市场规模评估、细分研究及对标分析，为复杂市场中的战略优先级、进入路径及投资决策提供依据。",
+    imageSrc: "/images/gs_style/blocks_icr_market.png",
+    href: "/services",
+  },
+  {
+    id: "strategic-consulting",
+    title: "战略咨询 (Strategic Consulting)",
+    description:
+      "提供研究导向的咨询与决策支持服务，将研究结论转化为清晰的决策选项、影响分析与管理层建议。",
+    imageSrc: "/images/gs_style/blocks_icr_consulting.png",
     href: "/services",
   },
 ];
@@ -78,17 +95,20 @@ const KPI_ITEMS = [
   {
     label: "受访者样本",
     value: "50K+",
-    description: "覆盖公民、消费者、员工与多类利益相关方，支持纵向与横向对比分析。",
+    description:
+      "覆盖公民、消费者、员工与多类利益相关方，支持纵向与横向对比分析。",
   },
   {
     label: "项目数",
     value: "300+",
-    description: "从快速洞察冲刺到年度大型研究，为不同成熟度阶段的组织提供灵活支持。",
+    description:
+      "从快速洞察冲刺到年度大型研究，为不同成熟度阶段的组织提供灵活支持。",
   },
   {
     label: "年经验",
     value: "15+",
-    description: "核心团队具备国际研究机构与本地咨询的双重背景，理解决策者真正关心的问题。",
+    description:
+      "核心团队具备国际研究机构与本地咨询的双重背景，理解决策者真正关心的问题。",
   },
 ];
 
@@ -106,7 +126,7 @@ export default function HomePage() {
             sizes="100vw"
             className="object-cover opacity-70"
           />
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
 
         <div className="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 md:py-20 lg:flex-row lg:items-end">
@@ -115,6 +135,8 @@ export default function HomePage() {
               eyebrow="ICR · INSIGHT CONSULTANCY & RESEARCH"
               title="塑造下一阶段市场与政策格局的洞见"
               subtitle="我们用严谨的研究与分析，为公共部门与企业在关键节点提供可以依赖的证据与观点。"
+              stroke="light"
+              tone="onDark"
             />
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -139,11 +161,11 @@ export default function HomePage() {
       {/* 最新洞见条带 */}
       <InsightStrip items={INSIGHTS} />
 
-      {/* 业务板块入口 */}
+      {/* 业务板块入口：六大服务 */}
       <FeatureBlocks
         eyebrow="服务板块"
-        title="围绕决策全链路的四大核心服务"
-        description="从问题定义到行动落地，我们在研究、数据分析、战略咨询与培训赋能四个维度提供一体化支持。"
+        title="围绕决策全链路的六大服务能力"
+        description="在 ICR，我们围绕定量、定性、追踪、零售与购物者、市场评估与机会分析以及战略咨询六大模块，提供从证据到行动的一体化支持。"
         items={FEATURE_BLOCKS}
       />
 

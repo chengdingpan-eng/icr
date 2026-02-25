@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 
 export type SerifHeadlineAlign = "left" | "center";
 export type SerifHeadlineStroke = "none" | "light";
+export type SerifHeadlineTone = "default" | "onDark";
 
 interface SerifHeadlineProps {
   eyebrow?: string;
@@ -9,6 +10,7 @@ interface SerifHeadlineProps {
   subtitle?: string;
   align?: SerifHeadlineAlign;
   stroke?: SerifHeadlineStroke;
+  tone?: SerifHeadlineTone;
   className?: string;
 }
 
@@ -24,12 +26,16 @@ export function SerifHeadline({
   subtitle,
   align = "left",
   stroke = "none",
+  tone = "default",
   className,
 }: SerifHeadlineProps) {
   const alignmentClasses =
     align === "center" ? "items-center text-center" : "items-start text-left";
 
   const strokeClass = stroke === "light" ? "serif-headline-stroke" : "";
+  const titleColorClass = tone === "onDark" ? "text-white" : "text-foreground";
+  const subtitleColorClass =
+    tone === "onDark" ? "text-slate-100" : "text-slate-600";
 
   return (
     <div className={cn("flex flex-col gap-4", alignmentClasses, className)}>
@@ -41,7 +47,8 @@ export function SerifHeadline({
 
       <h1
         className={cn(
-          "serif-headline text-3xl tracking-tight text-foreground sm:text-4xl lg:text-5xl",
+          "serif-headline text-3xl tracking-tight sm:text-4xl lg:text-5xl",
+          titleColorClass,
           strokeClass,
         )}
       >
@@ -49,7 +56,12 @@ export function SerifHeadline({
       </h1>
 
       {subtitle ? (
-        <p className="max-w-xl text-sm leading-relaxed text-slate-600 md:text-base">
+        <p
+          className={cn(
+            "max-w-xl text-sm leading-relaxed md:text-base",
+            subtitleColorClass,
+          )}
+        >
           {subtitle}
         </p>
       ) : null}
