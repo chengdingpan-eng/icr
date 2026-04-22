@@ -42,50 +42,49 @@ const INSIGHTS = [
 const FEATURE_BLOCKS = [
   {
     id: "quantitative",
-    title: "定量研究 (Quantitative Research)",
+    title: "以证据为基础的决策",
     description:
-      "运用科学的问卷设计、建模与分析技术，生成稳健、可验证的证据，为战略、运营及公共政策制定提供规模化支持。",
+      "基于稳健的定量数据与严格的方法论，让关键决策建立在可信的证据之上。",
     imageSrc: "/images/gs_style/blocks_icr_quant.png",
     href: "/services",
   },
   {
     id: "qualitative",
-    title: "定性研究 (Qualitative Research)",
+    title: "情境化洞察",
     description:
-      "通过深度访谈及系统化定性方法，拆解行为背后的认知逻辑与情感因素，为结果解读与决策判断提供背景支撑。",
+      "通过定性研究和本地语境理解，将数字背后的故事还原为可讨论的洞察。",
     imageSrc: "/images/gs_style/blocks_icr_qual.png",
     href: "/services",
   },
   {
     id: "tracking",
-    title: "追踪研究 (Tracking Studies)",
+    title: "持续监测",
     description:
-      "构建持续性的监测框架，长期追踪指标变化，精准识别新兴趋势并支持纵向洞察。",
+      "构建长期追踪框架，及时捕捉趋势变化，为政策与业务提供实时参照。",
     imageSrc: "/images/gs_style/blocks_icr_tracking.png",
     href: "/services",
   },
   {
     id: "retail-shopper",
-    title: "零售与购物者研究 (Retail & Shopper Research)",
+    title: "实用的市场洞察",
     description:
-      "基于结构化的线下审计与实地观察研究，在真实商业生态中获取一手可靠数据。",
+      "把零售现场与渠道调研转化为可落地的策略建议，而不是抽象结论。",
     imageSrc: "/images/gs_style/blocks_icr_retail.png",
     href: "/services",
   },
   {
     id: "market-assessment",
-    title:
-      "市场评估与机会分析 (Market Assessments & Opportunity Analysis)",
+    title: "清晰的战略市场认知",
     description:
-      "开展市场规模评估、细分研究及对标分析，为复杂市场中的战略优先级、进入路径及投资决策提供依据。",
+      "在复杂市场信息中梳理优先级与机会区，帮助你看清下一步布局。",
     imageSrc: "/images/gs_style/blocks_icr_market.png",
     href: "/services",
   },
   {
     id: "strategic-consulting",
-    title: "战略咨询 (Strategic Consulting)",
+    title: "可执行的战略方案",
     description:
-      "提供研究导向的咨询与决策支持服务，将研究结论转化为清晰的决策选项、影响分析与管理层建议。",
+      "将研究结果整理为清晰、可执行的方案，使不同职能团队都能对齐行动。",
     imageSrc: "/images/gs_style/blocks_icr_consulting.png",
     href: "/services",
   },
@@ -93,22 +92,22 @@ const FEATURE_BLOCKS = [
 
 const KPI_ITEMS = [
   {
-    label: "受访者样本",
-    value: "50K+",
+    label: "访谈执行量",
+    value: "100,000+",
     description:
-      "覆盖公民、消费者、员工与多类利益相关方，支持纵向与横向对比分析。",
+      "涵盖面对面、电话与数字化收集方式，持续累积的真实反馈。",
   },
   {
-    label: "项目数",
-    value: "300+",
+    label: "已交付项目",
+    value: "100+",
     description:
-      "从快速洞察冲刺到年度大型研究，为不同成熟度阶段的组织提供灵活支持。",
+      "跨公共政策、消费与零售等多个领域完成的研究与咨询项目。",
   },
   {
-    label: "年经验",
-    value: "15+",
+    label: "团队综合执业经验",
+    value: "55+",
     description:
-      "核心团队具备国际研究机构与本地咨询的双重背景，理解决策者真正关心的问题。",
+      "核心团队在研究、分析与咨询领域累积的年限经验。",
   },
 ];
 
@@ -163,9 +162,9 @@ export default function HomePage() {
 
       {/* 业务板块入口：六大服务 */}
       <FeatureBlocks
-        eyebrow="服务板块"
-        title="围绕决策全链路的六大服务能力"
-        description="在 ICR，我们围绕定量、定性、追踪、零售与购物者、市场评估与机会分析以及战略咨询六大模块，提供从证据到行动的一体化支持。"
+        eyebrow="我们的服务"
+        title="为什么选择 ICR"
+        description="我们帮助组织实现从证据到洞察，再从洞察到清晰、可论证的决策的转变。"
         items={FEATURE_BLOCKS}
       />
 

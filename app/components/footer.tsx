@@ -74,7 +74,7 @@ export default function Footer() {
                   href="/careers"
                   className="hover:text-brand-teal transition-colors"
                 >
-                  招聘
+                  职业发展
                 </Link>
               </li>
               <li>

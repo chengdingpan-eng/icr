@@ -1,34 +1,43 @@
 import { Users, Sparkles, Globe2, Clock } from "lucide-react";
+import { careersTranslations } from "../translations/careersTranslations";
 
 /**
  * ValuesGrid
  *
  * Why join ICR 优势条带，展示在 ICR 工作的体验与价值感受。
  */
+const cards = careersTranslations.zh.section1.cards;
+
 const BENEFITS = [
   {
     icon: Users,
-    title: "多学科团队协作",
-    description:
-      "与你背景各异的同事一起，从社会研究、商业洞察到数据建模，在真实项目中交叉学习、共创方案。",
+    title: cards.purpose.title,
+    description: cards.purpose.description,
   },
   {
     icon: Sparkles,
-    title: "面向决策的影响力",
-    description:
-      "你的分析不会停留在幻灯片上，而是走进董事会、政府会议室或项目工作坊，成为行动讨论的一部分。",
+    title: cards.collaborative.title,
+    description: cards.collaborative.description,
   },
   {
     icon: Globe2,
-    title: "国际视角与本地实践",
-    description:
-      "参与跨国或跨区域项目，在本地语境中落地国际成熟方法论，理解不同文化与制度环境下的决策逻辑。",
+    title: cards.learning.title,
+    description: cards.learning.description,
   },
   {
     icon: Clock,
-    title: "可持续的职业成长",
-    description:
-      "在项目密度与个人节奏之间寻找平衡，通过结构化反馈与项目轮换，支持你长期而稳定地成长。",
+    title: cards.exposure.title,
+    description: cards.exposure.description,
+  },
+  {
+    icon: Users,
+    title: cards.culture.title,
+    description: cards.culture.description,
+  },
+  {
+    icon: Sparkles,
+    title: cards.impact.title,
+    description: cards.impact.description,
   },
 ];
 

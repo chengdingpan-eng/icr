@@ -10,27 +10,33 @@ import { CareersCTA } from "../components/CareersCTA";
 const PROCESS_STEPS: MethodStep[] = [
   {
     label: "01",
-    title: "投递简历",
+    title: "简历评估",
     description:
-      "将你的简历和（如有）研究或分析作品发送至 info@icr-me.com，并简要说明你感兴趣的方向与地域。",
+      "我们会根据职位的契合度与过往经验对简历进行初步评估。",
   },
   {
     label: "02",
-    title: "初步交流",
+    title: "初步甄选",
     description:
-      "我们会邀请你与团队进行一次 30 分钟左右的线上交流，互相了解背景、期待与工作方式。",
+      "入围的候选人将受邀进行简短的电话或视频沟通。",
   },
   {
     label: "03",
-    title: "案例练习",
+    title: "深度面谈",
     description:
-      "针对不同岗位安排简短的案例或技能练习，模拟真实项目中的思考路径与协作方式。",
+      "您将与相关的团队负责人及管理层进行 1-2 轮面试。",
   },
   {
     label: "04",
-    title: "Offer 与入职计划",
+    title: "综合评审",
     description:
-      "通过评估后，我们会与你沟通 Offer 与入职时间，并根据背景制定前几个月的成长与陪伴计划。",
+      "在发出正式录用通知前，我们将对专业技能、团队契合度及文化一致性进行最终评估。",
+  },
+  {
+    label: "05",
+    title: "录用与入职",
+    description:
+      "获选候选人将收到正式的录用通知及详细的入职计划。",
   },
 ];
 
@@ -57,10 +63,10 @@ export default function CareersPage() {
               HIRING PROCESS
             </p>
             <h2 className="serif-headline mt-2 text-2xl text-foreground md:text-3xl">
-              加入 ICR 的四个步骤
+              加入 ICR 的五个步骤
             </h2>
             <p className="mt-3 text-sm text-slate-600 md:text-base">
-              我们希望招聘过程既高效透明，也给彼此足够的空间判断“是否真正适合长期合作”。下面是大多数岗位会经历的四个环节。
+              我们希望招聘过程既高效透明，也给彼此足够的空间判断“是否真正适合长期合作”。下面是大多数岗位会经历的五个环节。
             </p>
           </div>
           <div className="mt-10">

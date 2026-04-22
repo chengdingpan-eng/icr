@@ -158,7 +158,7 @@ export default function ServicesPage() {
             围绕同一个决策问题的六大服务模块
           </h1>
           <p className="mt-4 max-w-2xl text-sm text-violet-100 md:text-base">
-            参照 Kantar Solutions 的 Intelligence 栏目设计，我们将 ICR 的定量研究、定性研究、追踪研究、零售与购物者研究、市场评估与机会分析以及战略咨询六类能力，整理为一套可以组合的服务矩阵。
+            我们将 ICR 的定量研究、定性研究、追踪研究、零售与购物者研究、市场评估与机会分析以及战略咨询六类能力，整理为一套可以组合的服务矩阵。
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <CtaButton href="/ContactUS">讨论项目需求</CtaButton>
@@ -180,10 +180,10 @@ export default function ServicesPage() {
               INTELLIGENCE SERVICES
             </p>
             <h2 className="serif-headline mt-2 text-2xl md:text-3xl">
-              用六种 Intelligence 视角，拆解同一个业务问题
+              用六类服务能力，拆解同一个业务问题
             </h2>
             <p className="mt-3 text-sm text-violet-100 md:text-base">
-              每张卡片代表一种能力模块：从量化证据、质性洞察，到长期追踪、零售现场、市场机会识别与战略咨询。你可以根据项目所处阶段，将其中 2–3 项组合在同一个方案中。
+              在 ICR，我们致力于协助组织实现从“证据”走向“洞察”，并将洞察转化为清晰、经得起推敲的决策方案。
             </p>
           </div>
 

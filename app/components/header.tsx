@@ -20,7 +20,7 @@ const NAV_ITEMS = [
   { label: "专业领域", href: "/expertise" },
   { label: "为何选择 ICR", href: "/why-icr" },
   { label: "关于我们", href: "/about" },
-  { label: "招聘", href: "/careers" },
+  { label: "职业发展", href: "/careers" },
 ];
 
 function isActive(pathname: string, href: string) {

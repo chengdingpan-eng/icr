@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Users, Database, BarChart2, FileText, Award, Zap } from "lucide-react";
 import { GradientCTAButton } from "../components/GradientCTAButton";
 import { MethodTimeline, type MethodStep } from "../components/MethodTimeline";
@@ -17,6 +18,7 @@ const SUCCESS_FACTORS = [
     title: "严谨的数据与样本质量",
     description:
       "从样本设计到数据清洗，都遵循国际研究标准，并结合本地经验处理难以覆盖的人群与场景。",
+    imageSrc: "/images/why-icr/data_quality_dashboard.jpg",
   },
   {
     icon: BarChart2,
@@ -112,6 +114,17 @@ export default function WhyICRPage() {
                     highlighted ? "border-brand-blue/40 bg-brand-blue/5" : "border-slate-200"
                   }`}
                 >
+                  {factor.imageSrc ? (
+                    <div className="relative mb-3 h-28 w-full overflow-hidden rounded-lg bg-slate-900/90">
+                      <Image
+                        src={factor.imageSrc}
+                        alt={factor.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, 100vw"
+                        className="object-cover opacity-90"
+                      />
+                    </div>
+                  ) : null}
                   <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue">
                     <Icon className="h-5 w-5" />
                   </div>
