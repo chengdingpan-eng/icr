@@ -1,0 +1,103 @@
+diff --git a/app/components/FeatureBlocks.tsx b/app/components/FeatureBlocks.tsx
+index 97dfd41..1b58bcf 100755
+--- a/app/components/FeatureBlocks.tsx
++++ b/app/components/FeatureBlocks.tsx
+@@ -64,7 +64,7 @@ export function FeatureBlocks({
+                   alt={item.title}
+                   fill
+                   sizes="(min-width: 1024px) 50vw, 100vw"
+-                  className="object-cover transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0 grayscale"
++                  className="object-cover transition-all duration-500 brightness-75 saturate-75 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100"
+                 />
+               </div>
+ 
+diff --git a/app/components/InsightStrip.tsx b/app/components/InsightStrip.tsx
+index 9610c79..bf47250 100755
+--- a/app/components/InsightStrip.tsx
++++ b/app/components/InsightStrip.tsx
+@@ -64,7 +64,7 @@ export function InsightStrip({ items, className }: InsightStripProps) {
+                   alt={item.title}
+                   fill
+                   sizes="(min-width: 1024px) 33vw, 100vw"
+-                  className="object-cover transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0 grayscale"
++                  className="object-cover transition-all duration-500 brightness-75 saturate-75 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100"
+                 />
+               </div>
+ 
+diff --git a/app/components/RoleCardGrid.tsx b/app/components/RoleCardGrid.tsx
+index aca1286..1039ea3 100755
+--- a/app/components/RoleCardGrid.tsx
++++ b/app/components/RoleCardGrid.tsx
+@@ -85,8 +85,8 @@ export function RoleCardGrid() {
+         <div className="mt-10 grid gap-6 md:grid-cols-2">
+           {ROLE_CARDS.map((role) => (
+             <article
+-              key={role.id}
+-              className="flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
++               key={role.id}
++               className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+             >
+               <div className="relative h-40 w-full overflow-hidden bg-slate-200">
+                 <Image
+@@ -94,7 +94,7 @@ export function RoleCardGrid() {
+                   alt={role.title}
+                   fill
+                   sizes="(min-width: 1024px) 50vw, 100vw"
+-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
++                  className="object-cover transition-all duration-500 brightness-75 saturate-75 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100"
+                 />
+               </div>
+ 
+diff --git a/app/components/StaggeredTimeline.tsx b/app/components/StaggeredTimeline.tsx
+index bf86fd7..ae219e0 100755
+--- a/app/components/StaggeredTimeline.tsx
++++ b/app/components/StaggeredTimeline.tsx
+@@ -98,9 +98,9 @@ export function StaggeredTimeline({ steps }: StaggeredTimelineProps) {
+ 
+               {/* 中心编号圆点：与当前行模块的纵向中点对齐 */}
+               <div
+-                className="pointer-events-none absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-500 text-sm font-semibold text-white shadow-lg"
+-                aria-label={stepLabel}
+-                role="img"
++                 className="pointer-events-none absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-teal text-sm font-semibold text-white shadow-lg"
++                 aria-label={stepLabel}
++                 role="img"
+               >
+                 {numericStep}
+               </div>
+diff --git a/app/expertise/page.tsx b/app/expertise/page.tsx
+index 73babf9..a7e3fe2 100644
+--- a/app/expertise/page.tsx
++++ b/app/expertise/page.tsx
+@@ -174,15 +174,15 @@ export default function ExpertisePage() {
+                       : "order-2 flex justify-center md:order-2 md:justify-start"
+                   }
+                 >
+-                  <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md">
++                  <div className="group relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md">
+                     <Image
+                       src={block.image}
+                       alt={block.title}
+                       width={640}
+                       height={400}
+-                      className="h-full w-full object-cover"
++                      className="h-full w-full object-cover transition-all duration-500 brightness-75 saturate-75 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100"
+                     />
+-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
++                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
+                   </div>
+                 </div>
+               </div>
+diff --git a/app/globals.css b/app/globals.css
+index 0f75e87..3bdd0b4 100644
+--- a/app/globals.css
++++ b/app/globals.css
+@@ -212,6 +212,8 @@
+ /* Serif headline utility based on --font-serif */
+ .serif-headline {
+   font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
++  /* 首页及全站大标题行距略微增大，提升可读性与编辑感 */
++  line-height: 1.1;
+ }
+ 
+ .serif-headline-stroke {

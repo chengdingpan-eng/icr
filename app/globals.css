@@ -212,6 +212,8 @@
 /* Serif headline utility based on --font-serif */
 .serif-headline {
   font-family: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
+  /* 首页及全站大标题行距略微增大，提升可读性与编辑感 */
+  line-height: 1.1;
 }
 
 .serif-headline-stroke {

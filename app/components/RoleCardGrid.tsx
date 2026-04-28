@@ -85,8 +85,8 @@ export function RoleCardGrid() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {ROLE_CARDS.map((role) => (
             <article
-              key={role.id}
-              className="flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+               key={role.id}
+               className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
             >
               <div className="relative h-40 w-full overflow-hidden bg-slate-200">
                 <Image
@@ -94,7 +94,7 @@ export function RoleCardGrid() {
                   alt={role.title}
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-all duration-500 brightness-75 saturate-75 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100"
                 />
               </div>
 

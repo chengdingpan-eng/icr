@@ -98,9 +98,9 @@ export function StaggeredTimeline({ steps }: StaggeredTimelineProps) {
 
               {/* 中心编号圆点：与当前行模块的纵向中点对齐 */}
               <div
-                className="pointer-events-none absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-500 text-sm font-semibold text-white shadow-lg"
-                aria-label={stepLabel}
-                role="img"
+                 className="pointer-events-none absolute left-1/2 top-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-teal text-sm font-semibold text-white shadow-lg"
+                 aria-label={stepLabel}
+                 role="img"
               >
                 {numericStep}
               </div>

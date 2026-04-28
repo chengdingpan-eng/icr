@@ -64,7 +64,7 @@ export function InsightStrip({ items, className }: InsightStripProps) {
                   alt={item.title}
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0 grayscale"
+                  className="object-cover transition-all duration-500 brightness-75 saturate-75 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100"
                 />
               </div>
 

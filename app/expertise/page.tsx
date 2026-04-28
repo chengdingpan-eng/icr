@@ -174,15 +174,15 @@ export default function ExpertisePage() {
                       : "order-2 flex justify-center md:order-2 md:justify-start"
                   }
                 >
-                  <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md">
+                  <div className="group relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-md">
                     <Image
                       src={block.image}
                       alt={block.title}
                       width={640}
                       height={400}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition-all duration-500 brightness-75 saturate-75 group-hover:scale-105 group-hover:brightness-100 group-hover:saturate-100"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent" />
                   </div>
                 </div>
               </div>
